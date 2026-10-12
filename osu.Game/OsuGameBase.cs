@@ -77,10 +77,11 @@ namespace osu.Game
     [Cached(typeof(OsuGameBase))]
     public partial class OsuGameBase : Framework.Game, ICanAcceptFiles, IBeatSyncProvider
     {
+        // kan! rebrand (ADR-0011): product identity is kan!; upstream osu! appears only in attribution.
 #if DEBUG
-        public const string GAME_NAME = "osu! (development)";
+        public const string GAME_NAME = "kan! (development)";
 #else
-        public const string GAME_NAME = "osu!";
+        public const string GAME_NAME = "kan!";
 #endif
 
         public const string OSU_PROTOCOL = "osu://";

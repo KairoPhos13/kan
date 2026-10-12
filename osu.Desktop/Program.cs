@@ -20,10 +20,13 @@ namespace osu.Desktop
 {
     public static class Program
     {
+        // kan! rebrand (ADR-0011): user data / storage folder names for our own
+        // artifacts say "kan". Note that the osu!stable import paths below still
+        // target the user's osu! installation on purpose.
 #if DEBUG
-        private const string base_game_name = @"osu-development";
+        private const string base_game_name = @"kan-development";
 #else
-        private const string base_game_name = @"osu";
+        private const string base_game_name = @"kan";
 #endif
 
         private static LegacyTcpIpcProvider? legacyIpc;

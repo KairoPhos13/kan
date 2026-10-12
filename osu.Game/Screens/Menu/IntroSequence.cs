@@ -103,7 +103,8 @@ namespace osu.Game.Screens.Menu
                 {
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    Text = "welcome",
+                    // kan! rebrand (ADR-0011): the splash introduces kan!.
+                    Text = @"kan!",
                     Padding = new MarginPadding { Bottom = 10 },
                     Font = OsuFont.GetFont(weight: FontWeight.Light, size: 42),
                     Alpha = 0,

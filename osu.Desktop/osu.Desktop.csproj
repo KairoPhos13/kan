@@ -3,11 +3,12 @@
     <TargetFramework>net10.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Description>A free-to-win rhythm game. Rhythm is just a *click* away!</Description>
-    <AssemblyName>osu!</AssemblyName>
-    <AssemblyTitle>osu!(lazer)</AssemblyTitle>
-    <Title>osu!</Title>
-    <Product>osu!(lazer)</Product>
+    <!-- kan! rebrand (ADR-0011): our artifacts carry the kan! identity. -->
+    <Description>kan! — grab your instrument. You kan!</Description>
+    <AssemblyName>kan</AssemblyName>
+    <AssemblyTitle>kan!</AssemblyTitle>
+    <Title>kan!</Title>
+    <Product>kan!</Product>
     <ApplicationIcon>lazer.ico</ApplicationIcon>
     <Version>0.0.0</Version>
     <FileVersion>0.0.0</FileVersion>
