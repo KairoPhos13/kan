@@ -31,6 +31,8 @@ namespace osu.Game.Overlays.Settings.Sections
                 Add(new UpdateSettings());
             if (RuntimeInfo.IsDesktop)
                 Add(new InstallationSettings());
+            // kan! rebrand (ADR-0011): about / attribution screen.
+            Add(new Kan.Client.KanAboutSettings());
         }
     }
 }
