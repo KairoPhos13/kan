@@ -466,6 +466,12 @@ namespace osu.Game.Screens.Edit
                                 Origin = Anchor.BottomRight,
                                 X = -10,
                                 Current = Mode,
+                                // kan! rebrand (ADR-0011) / fork F-11: the
+                                // "tracks" tab only shows when the ruleset
+                                // provides its screen.
+                                Items = Enum.GetValues<EditorScreenMode>()
+                                            .Where(m => m != EditorScreenMode.Tracks || getTracksScreen() != null)
+                                            .ToArray(),
                             },
                         },
                     },
@@ -1148,6 +1154,13 @@ namespace osu.Game.Screens.Edit
                         currentScreen = new VerifyScreen();
                         break;
 
+                    // kan! rebrand (ADR-0011) / fork F-11: ruleset-provided
+                    // "tracks" screen (kan!forge level creation).
+                    case EditorScreenMode.Tracks:
+                        currentScreen = getTracksScreen()
+                                        ?? throw new InvalidOperationException("ruleset does not provide a tracks screen");
+                        break;
+
                     default:
                         throw new InvalidOperationException("Editor menu bar switched to an unsupported mode");
                 }
@@ -1170,6 +1183,15 @@ namespace osu.Game.Screens.Edit
                 rebindClipboardBindables();
             }
         }
+
+        /// <summary>
+        /// kan! rebrand (ADR-0011) / fork F-11: the ruleset's "tracks" screen,
+        /// created once and reused (also used to decide tab visibility).
+        /// </summary>
+        private EditorScreen tracksScreen;
+
+        private EditorScreen getTracksScreen()
+            => tracksScreen ??= editorBeatmap.BeatmapInfo.Ruleset.CreateInstance().CreateTracksEditorScreen();
 
         /// <summary>
         /// Forces a reload of the compose screen after significant configuration changes.

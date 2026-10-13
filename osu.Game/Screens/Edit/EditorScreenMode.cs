@@ -22,5 +22,11 @@ namespace osu.Game.Screens.Edit
 
         [LocalisableDescription(typeof(EditorStrings), nameof(EditorStrings.VerifyScreen))]
         Verify,
+
+        // kan! rebrand (ADR-0011) / fork F-11: the ruleset-provided "tracks"
+        // editor screen (kan!forge level creation — media track list, roles,
+        // track editing). The screen instance comes from
+        // Ruleset.CreateTracksEditorScreen().
+        Tracks,
     }
 }
