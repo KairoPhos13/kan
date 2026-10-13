@@ -11,6 +11,12 @@ namespace osu.Game.Screens.Edit
         [LocalisableDescription(typeof(EditorStrings), nameof(EditorStrings.SetupScreen))]
         SongSetup,
 
+        // kan! rebrand (ADR-0011) / fork F-11: the ruleset-provided "track"
+        // editor screen (kan!forge level creation) — second tab, the first
+        // tool used when creating a level (owner 2026-10-13). The screen
+        // instance comes from Ruleset.CreateTracksEditorScreen().
+        Tracks,
+
         [LocalisableDescription(typeof(EditorStrings), nameof(EditorStrings.ComposeScreen))]
         Compose,
 
@@ -22,11 +28,5 @@ namespace osu.Game.Screens.Edit
 
         [LocalisableDescription(typeof(EditorStrings), nameof(EditorStrings.VerifyScreen))]
         Verify,
-
-        // kan! rebrand (ADR-0011) / fork F-11: the ruleset-provided "tracks"
-        // editor screen (kan!forge level creation — media track list, roles,
-        // track editing). The screen instance comes from
-        // Ruleset.CreateTracksEditorScreen().
-        Tracks,
     }
 }

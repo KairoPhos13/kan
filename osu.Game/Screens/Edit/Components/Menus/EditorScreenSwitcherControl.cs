@@ -56,6 +56,11 @@ namespace osu.Game.Screens.Edit.Components.Menus
 
                 Text.Font = OsuFont.TorusAlternate;
 
+                // kan! rebrand (ADR-0011) / fork F-11: the kan!forge tab is
+                // presented lowercase like its neighbours ("track").
+                if (value == EditorScreenMode.Tracks)
+                    Text.Text = @"track";
+
                 Add(background = new Box
                 {
                     RelativeSizeAxes = Axes.Both,
