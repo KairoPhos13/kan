@@ -26,10 +26,14 @@
   <ItemGroup Label="Project References">
     <ProjectReference Include="..\osu.Game.Tournament\osu.Game.Tournament.csproj"/>
     <ProjectReference Include="..\osu.Game\osu.Game.csproj"/>
-    <ProjectReference Include="..\osu.Game.Rulesets.Osu\osu.Game.Rulesets.Osu.csproj"/>
-    <ProjectReference Include="..\osu.Game.Rulesets.Catch\osu.Game.Rulesets.Catch.csproj"/>
-    <ProjectReference Include="..\osu.Game.Rulesets.Mania\osu.Game.Rulesets.Mania.csproj"/>
-    <ProjectReference Include="..\osu.Game.Rulesets.Taiko\osu.Game.Rulesets.Taiko.csproj"/>
+    <!--
+      kan! rebrand (ADR-0011) / owner direction 2026-10-12: the stock game
+      modes (osu!standard, taiko, catch, mania) are NOT part of kan!. The
+      ruleset slots belong to instruments (see game/docs/instrument-modes.md
+      in the kan-rhythm monorepo). The ruleset projects remain in the
+      repository for tests/tooling; they are simply not shipped in the
+      desktop client. Logged in game/docs/fork-divergence.md as F-9.
+    -->
   </ItemGroup>
   <ItemGroup Label="Package References">
     <PackageReference Include="System.IO.Packaging" Version="10.0.12"/>
