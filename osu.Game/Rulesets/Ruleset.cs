@@ -500,6 +500,14 @@ namespace osu.Game.Rulesets
         public virtual osu.Game.Screens.Edit.EditorScreen? CreateTracksEditorScreen() => null;
 
         /// <summary>
+        /// kan! fork F-13: an optional ruleset-provided screen for the
+        /// editor's "compose" tab, replacing the stock <c>ComposeScreen</c>
+        /// (kan!forge: the transcription / score editor). Return
+        /// <see langword="null"/> to keep the stock compose screen.
+        /// </summary>
+        public virtual osu.Game.Screens.Edit.EditorScreen? CreateComposeEditorScreen() => null;
+
+        /// <summary>
         /// Can be overridden to avoid showing scroll speed changes in the editor.
         /// </summary>
         public virtual bool EditorShowScrollSpeed => true;

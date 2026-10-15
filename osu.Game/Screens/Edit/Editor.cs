@@ -1139,7 +1139,8 @@ namespace osu.Game.Screens.Edit
                         break;
 
                     case EditorScreenMode.Compose:
-                        currentScreen = new ComposeScreen();
+                        // kan! fork F-13: a ruleset may provide its own compose screen.
+                        currentScreen = editorBeatmap.BeatmapInfo.Ruleset.CreateInstance().CreateComposeEditorScreen() ?? new ComposeScreen();
                         break;
 
                     case EditorScreenMode.Design:
@@ -1677,7 +1678,9 @@ namespace osu.Game.Screens.Edit
             Mode.Value = EditorScreenMode.Compose;
 
             // Delegate handling the selection to the ruleset.
-            currentScreen.Dependencies.Get<HitObjectComposer>().SelectFromTimestamp(position, selection);
+            // kan! fork F-13: a ruleset-provided compose screen has no HitObjectComposer.
+            if (currentScreen is ComposeScreen)
+                currentScreen.Dependencies.Get<HitObjectComposer>().SelectFromTimestamp(position, selection);
             return true;
         }
 
