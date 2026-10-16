@@ -2,6 +2,7 @@
 // See the LICENCE file in the repository root for full licence text.
 
 using System;
+using System.Linq;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using ManagedBass.Fx;
@@ -273,7 +274,7 @@ namespace osu.Game.Screens.Play
                                         VisualSettings = new VisualSettings(),
                                         AudioSettings = new AudioSettings(),
                                         new InputSettings()
-                                    }
+                                    }.Concat(Ruleset.Value.CreateInstance().CreatePlayerLoaderSettings()).ToArray() // kan! fork (F-16)
                                 },
                             }
                         },

@@ -515,6 +515,14 @@ namespace osu.Game.Rulesets
         public virtual osu.Game.Screens.Edit.EditorScreen? CreateDesignEditorScreen() => null;
 
         /// <summary>
+        /// kan! fork (F-16): settings groups the ruleset adds to the player
+        /// loader's side panel (after the stock visual / audio / input groups),
+        /// for options a player sets right before playing.
+        /// </summary>
+        public virtual IEnumerable<osu.Game.Screens.Play.PlayerSettings.PlayerSettingsGroup> CreatePlayerLoaderSettings()
+            => Array.Empty<osu.Game.Screens.Play.PlayerSettings.PlayerSettingsGroup>();
+
+        /// <summary>
         /// Can be overridden to avoid showing scroll speed changes in the editor.
         /// </summary>
         public virtual bool EditorShowScrollSpeed => true;
