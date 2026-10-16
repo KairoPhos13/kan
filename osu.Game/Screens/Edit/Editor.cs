@@ -1144,7 +1144,8 @@ namespace osu.Game.Screens.Edit
                         break;
 
                     case EditorScreenMode.Design:
-                        currentScreen = new DesignScreen();
+                        // kan! fork (F-15): the ruleset may provide its own design screen.
+                        currentScreen = editorBeatmap.BeatmapInfo.Ruleset.CreateInstance().CreateDesignEditorScreen() ?? new DesignScreen();
                         break;
 
                     case EditorScreenMode.Timing:

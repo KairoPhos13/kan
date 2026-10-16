@@ -508,6 +508,13 @@ namespace osu.Game.Rulesets
         public virtual osu.Game.Screens.Edit.EditorScreen? CreateComposeEditorScreen() => null;
 
         /// <summary>
+        /// kan! fork (F-15): a ruleset-provided "design" editor screen, shown
+        /// instead of the stock <see cref="osu.Game.Screens.Edit.Design.DesignScreen"/>.
+        /// Null (the default) keeps the stock screen.
+        /// </summary>
+        public virtual osu.Game.Screens.Edit.EditorScreen? CreateDesignEditorScreen() => null;
+
+        /// <summary>
         /// Can be overridden to avoid showing scroll speed changes in the editor.
         /// </summary>
         public virtual bool EditorShowScrollSpeed => true;
