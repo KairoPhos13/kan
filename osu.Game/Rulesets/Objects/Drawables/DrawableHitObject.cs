@@ -715,6 +715,15 @@ namespace osu.Game.Rulesets.Objects.Drawables
         protected void ApplyResult(Action<JudgementResult, DrawableHitObject> application) => ApplyResult(application, this);
 
         /// <summary>
+        /// The time a result is stamped with: now, by default. A ruleset that
+        /// decides a result after the player acted (kan!: a played note's pitch
+        /// arrives after its attack) stamps the moment the player acted, so
+        /// hit error meters and the results' timing show the player's timing,
+        /// not the decision's (kan! fork, F-17).
+        /// </summary>
+        protected virtual double ResultTime => Time.Current;
+
+        /// <summary>
         /// Applies the <see cref="Result"/> of this <see cref="DrawableHitObject"/>, notifying responders such as
         /// the <see cref="ScoreProcessor"/> of the <see cref="JudgementResult"/>.
         /// </summary>
@@ -741,7 +750,7 @@ namespace osu.Game.Rulesets.Objects.Drawables
                     $"{GetType().ReadableName()} applied an invalid hit result (was: {Result.Type}, expected: [{Result.Judgement.MinResult} ... {Result.Judgement.MaxResult}]).");
             }
 
-            Result.RawTime = Time.Current;
+            Result.RawTime = ResultTime; // kan! fork (F-17)
             Result.GameplayRate = (Clock as IGameplayClock)?.GetTrueGameplayRate() ?? Clock.Rate;
 
             if (Result.HasResult)
