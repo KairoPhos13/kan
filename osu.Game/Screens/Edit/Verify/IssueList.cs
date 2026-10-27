@@ -36,6 +36,7 @@ namespace osu.Game.Screens.Edit.Verify
         [Resolved]
         private BeatmapManager beatmapManager { get; set; }
 
+        private osu.Game.Rulesets.Ruleset ruleset;
         private IBeatmapVerifier rulesetVerifier;
         private BeatmapVerifier generalVerifier;
         private BeatmapVerifierContext context;
@@ -44,7 +45,8 @@ namespace osu.Game.Screens.Edit.Verify
         private void load(OverlayColourProvider colours)
         {
             generalVerifier = new BeatmapVerifier();
-            rulesetVerifier = beatmap.BeatmapInfo.Ruleset.CreateInstance().CreateBeatmapVerifier();
+            ruleset = beatmap.BeatmapInfo.Ruleset.CreateInstance();
+            rulesetVerifier = ruleset.CreateBeatmapVerifier();
 
             context = BeatmapVerifierContext.Create(
                 beatmap,
@@ -102,7 +104,8 @@ namespace osu.Game.Screens.Edit.Verify
 
         public void Refresh()
         {
-            var issues = generalVerifier.Run(context);
+            // kan! fork F-19: the ruleset leaves out the general checks that do not apply to it.
+            var issues = generalVerifier.Run(context).Where(issue => ruleset.AppliesGeneralCheck(issue.Check));
 
             if (rulesetVerifier != null)
                 issues = issues.Concat(rulesetVerifier.Run(context));

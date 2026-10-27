@@ -288,6 +288,13 @@ namespace osu.Game.Rulesets
 
         public virtual IBeatmapVerifier? CreateBeatmapVerifier() => null;
 
+        /// <summary>
+        /// kan! fork F-19: whether a ruleset-agnostic check (<see cref="BeatmapVerifier"/>)
+        /// applies to this ruleset's beatmaps. A ruleset whose notes live outside the
+        /// beatmap's hit objects turns off the checks that count them.
+        /// </summary>
+        public virtual bool AppliesGeneralCheck(osu.Game.Rulesets.Edit.Checks.Components.ICheck check) => true;
+
         public virtual Drawable CreateIcon() => new SpriteIcon { Icon = FontAwesome.Solid.QuestionCircle };
 
         public virtual IResourceStore<byte[]> CreateResourceStore() => new NamespacedResourceStore<byte[]>(new DllResourceStore(GetType().Assembly), @"Resources");
