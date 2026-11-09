@@ -55,8 +55,9 @@ namespace osu.Desktop.Updater
 
             try
             {
-                // kan! rebrand (ADR-0011), fork F-20: kan!'s own releases; osu!'s would install osu!lazer over kan!.
-                IUpdateSource updateSource = new GithubSource(@"https://github.com/KairoPhos/kan", null, ReleaseStream.Value == Game.Configuration.ReleaseStream.Tachyon);
+                // kan! rebrand (ADR-0011), fork F-20/F-24: kan!'s own releases (published by the
+                // kan-rhythm repository's CI); osu!'s would install osu!lazer over kan!.
+                IUpdateSource updateSource = new GithubSource(@"https://github.com/KairoPhos/kan-rhythm", null, ReleaseStream.Value == Game.Configuration.ReleaseStream.Tachyon);
                 Velopack.UpdateManager updateManager = new Velopack.UpdateManager(updateSource, new UpdateOptions
                 {
                     AllowVersionDowngrade = true
