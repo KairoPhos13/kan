@@ -70,7 +70,9 @@ namespace osu.Game.Online.API
 
         public Language Language => game.CurrentLanguage.Value;
 
-        protected bool HasLogin => authentication.Token.Value != null || (!string.IsNullOrEmpty(ProvidedUsername) && !string.IsNullOrEmpty(password));
+        // kan! rebrand (ADR-0011), fork F-20: with no server configured there is nothing to log in to.
+        protected bool HasLogin => !string.IsNullOrEmpty(Endpoints.APIUrl)
+                                    && (authentication.Token.Value != null || (!string.IsNullOrEmpty(ProvidedUsername) && !string.IsNullOrEmpty(password)));
 
         private readonly CancellationTokenSource cancellationToken = new CancellationTokenSource();
         private readonly Logger log;

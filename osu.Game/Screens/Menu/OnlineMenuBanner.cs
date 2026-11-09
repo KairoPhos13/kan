@@ -15,6 +15,7 @@ using osu.Framework.Input.Events;
 using osu.Framework.Threading;
 using osu.Framework.Utils;
 using osu.Game.Graphics.Containers;
+using osu.Game.Online;
 using osu.Game.Online.API.Requests;
 using osu.Game.Online.API.Requests.Responses;
 
@@ -66,7 +67,8 @@ namespace osu.Game.Screens.Menu
 
         private void checkForUpdates()
         {
-            if (!FetchOnlineContent)
+            // kan! rebrand (ADR-0011), fork F-20: the banner's content comes from osu!'s servers.
+            if (!FetchOnlineContent || !KanEndpointConfiguration.HasServer)
                 return;
 
             var request = new GetMenuContentRequest();

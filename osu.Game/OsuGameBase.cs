@@ -107,8 +107,8 @@ namespace osu.Game
 
         public virtual bool UseDevelopmentServer => DebugUtils.IsDebugBuild;
 
-        public virtual EndpointConfiguration CreateEndpoints() =>
-            UseDevelopmentServer ? new DevelopmentEndpointConfiguration() : new ProductionEndpointConfiguration();
+        // kan! rebrand (ADR-0011), fork F-20: kan!'s own servers (none yet), never osu!'s.
+        public virtual EndpointConfiguration CreateEndpoints() => new KanEndpointConfiguration();
 
         protected override OnlineStore CreateOnlineStore() => new TrustedDomainOnlineStore();
 
@@ -278,6 +278,10 @@ namespace osu.Game
                 // should eventually be handled in a better way.
                 VersionHash = $"{Version}-{RuntimeInfo.OS}".ComputeMD5Hash();
             }
+
+            // kan! rebrand (ADR-0011), fork F-21: kan!'s own art and sounds first, osu!'s for what it lacks.
+            if (KanBrandResources.Create() is IResourceStore<byte[]> brand)
+                Resources.AddStore(brand);
 
             Resources.AddStore(new DllResourceStore(OsuResources.ResourceAssembly));
 

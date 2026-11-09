@@ -15,6 +15,7 @@ using osu.Framework.Utils;
 using osu.Game.Graphics;
 using osu.Game.Graphics.Containers;
 using osu.Game.Localisation;
+using osu.Game.Online;
 using osu.Game.Online.API;
 using osu.Game.Online.API.Requests.Responses;
 using osu.Game.Online.Chat;
@@ -80,6 +81,13 @@ namespace osu.Game.Screens.Menu
         protected override void LoadComplete()
         {
             base.LoadComplete();
+
+            // kan! rebrand (ADR-0011), fork F-20: no "become an osu!supporter" in kan!.
+            if (!KanEndpointConfiguration.HasServer)
+            {
+                Hide();
+                return;
+            }
 
             currentUser.BindTo(api.LocalUser);
             currentUser.BindValueChanged(e =>

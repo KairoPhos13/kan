@@ -1,5 +1,6 @@
 // Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
+// kan! rebrand (ADR-0011): strings meaning the game itself say kan! (English only).
 
 using osu.Framework.Localisation;
 
@@ -15,9 +16,9 @@ namespace osu.Game.Localisation
         public static LocalisableString CheckingForFullscreenCapabilities => new TranslatableString(getKey(@"checking_for_fullscreen_capabilities"), @"Checking for fullscreen capabilities...");
 
         /// <summary>
-        /// "osu! is running in exclusive fullscreen, guaranteeing low latency!"
+        /// "kan! is running in exclusive fullscreen, guaranteeing low latency!"
         /// </summary>
-        public static LocalisableString OsuIsRunningExclusiveFullscreen => new TranslatableString(getKey(@"osu_is_running_exclusive_fullscreen"), @"osu! is running in exclusive fullscreen, guaranteeing low latency!");
+        public static LocalisableString OsuIsRunningExclusiveFullscreen => new TranslatableString(getKey(@"osu_is_running_exclusive_fullscreen"), @"kan! is running in exclusive fullscreen, guaranteeing low latency!");
 
         /// <summary>
         /// "Unable to run in exclusive fullscreen. You may experience some input latency."

@@ -12,6 +12,7 @@ using osu.Framework.IO.Network;
 using osu.Framework.Logging;
 using osu.Framework.Platform;
 using osu.Game.Database;
+using osu.Game.Online;
 using SharpCompress.Compressors;
 using SharpCompress.Compressors.BZip2;
 using SQLitePCL;
@@ -173,6 +174,10 @@ namespace osu.Game.Beatmaps
             // This is guarded in the local call, but also included as a safety
             // for any incorrect public usage.
             if (DebugUtils.IsNUnitRunning)
+                return Task.CompletedTask;
+
+            // kan! rebrand (ADR-0011), fork F-20: the cache is osu!'s ranked beatmaps, from osu!'s servers.
+            if (!KanEndpointConfiguration.HasServer)
                 return Task.CompletedTask;
 
             bool isRefetch = storage.Exists(cache_database_name);

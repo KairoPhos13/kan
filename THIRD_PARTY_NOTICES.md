@@ -2,7 +2,7 @@
 
 Generated 2026-10-12 by `game/tools/gen-third-party-notices.py` (monorepo kan-rhythm). Do not edit by hand — regenerate instead.
 
-The kan! client is built on the osu!lazer fork (github.com/KairoPhos13/kan, itself a fork of `ppy/osu`). This file lists every redistributed third-party component and its licence, and is shown on the in-game about screen. Licence *texts* of individual packages ship inside the corresponding NuGet package (`~/.nuget/packages/<id>/<version>/`); extract any of them with:
+The kan! client is built on the osu!lazer fork (github.com/KairoPhos/kan, itself a fork of `ppy/osu`). This file lists every redistributed third-party component and its licence, and is shown on the in-game about screen. Licence *texts* of individual packages ship inside the corresponding NuGet package (`~/.nuget/packages/<id>/<version>/`); extract any of them with:
 
     unzip -p ~/.nuget/packages/<id>/<version>/<id>.<version>.nupkg <path-inside> 
 
@@ -10,7 +10,7 @@ The kan! client is built on the osu!lazer fork (github.com/KairoPhos13/kan, itse
 
 - **osu!lazer** (`ppy/osu`) — MIT Licence — Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors. kan! is a rebranded fork (ADR-0011); upstream copyright headers are preserved in every adapted file.
 - **osu!framework** (`ppy/osu-framework`) — MIT Licence — Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors.
-- **osu! Game Resources** (`ppy.osu.Game.Resources`) — MIT Licence.
+- **osu! Game Resources** (`ppy.osu.Game.Resources`, © ppy Pty Ltd) — CC BY-NC 4.0 for most content, fonts under their own licences (https://github.com/ppy/osu-resources). Used non-commercially; kan!'s own art and sounds replace them as they are made (`brand/`). The osu! name and logo are ppy's trademarks.
 
 Full text of the base project's licence (fork `LICENCE`):
 

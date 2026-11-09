@@ -1,5 +1,6 @@
 ﻿// Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
+// kan! rebrand (ADR-0011): strings meaning the game itself say kan! (English only).
 
 using osu.Framework.Localisation;
 
@@ -65,9 +66,9 @@ namespace osu.Game.Localisation
         public static LocalisableString ConfirmAbortMatchHeaderText => new TranslatableString(getKey(@"confirm_abort_match_header_text"), @"Are you sure you want to abort the match?");
 
         /// <summary>
-        /// "Are you sure you want to exit osu!?"
+        /// "Are you sure you want to exit kan!?"
         /// </summary>
-        public static LocalisableString ConfirmExitHeaderText => new TranslatableString(getKey(@"confirm_exit_header_text"), @"Are you sure you want to exit osu!?");
+        public static LocalisableString ConfirmExitHeaderText => new TranslatableString(getKey(@"confirm_exit_header_text"), @"Are you sure you want to exit kan!?");
 
         /// <summary>
         /// "Last chance to turn back"

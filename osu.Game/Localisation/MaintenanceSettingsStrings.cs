@@ -1,5 +1,6 @@
 // Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
+// kan! rebrand (ADR-0011): strings meaning the game itself say kan! (English only).
 
 using osu.Framework.Localisation;
 
@@ -40,9 +41,9 @@ namespace osu.Game.Localisation
         public static LocalisableString SelectNewLocation => new TranslatableString(getKey(@"select_new_location"), @"Please select a new location");
 
         /// <summary>
-        /// "The target directory already seems to have an osu! install. Use that data instead? osu! will restart."
+        /// "The target directory already seems to have a kan! install. Use that data instead? kan! will restart."
         /// </summary>
-        public static LocalisableString TargetDirectoryAlreadyInstalledOsu => new TranslatableString(getKey(@"target_directory_already_installed_osu"), @"The target directory already seems to have an osu! install. Use that data instead? osu! will restart.");
+        public static LocalisableString TargetDirectoryAlreadyInstalledOsu => new TranslatableString(getKey(@"target_directory_already_installed_osu"), @"The target directory already seems to have a kan! install. Use that data instead? kan! will restart.");
 
         /// <summary>
         /// "Delete ALL beatmaps"

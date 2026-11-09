@@ -65,8 +65,9 @@ namespace osu.Game.Screens.Edit.Components.Menus
                 },
             });
 
-            text.AddText(@"osu!", t => t.Font = OsuFont.TorusAlternate);
-            text.AddText(@"editor", t =>
+            // kan! rebrand (ADR-0011): kan!'s editor is kan!forge.
+            text.AddText(@"kan!", t => t.Font = OsuFont.TorusAlternate);
+            text.AddText(@"forge", t =>
             {
                 t.Font = OsuFont.TorusAlternate;
                 t.Colour = colourProvider.Highlight1;

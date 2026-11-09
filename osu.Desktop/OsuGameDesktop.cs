@@ -144,7 +144,9 @@ namespace osu.Desktop
 
             base.LoadComplete();
 
-            LoadComponentAsync(new DiscordRichPresence(), Add);
+            // kan! rebrand (ADR-0011), fork F-20: the presence is osu!'s Discord application
+            // ("Playing osu!", its logo). Back on once kan! has its own application id.
+            // LoadComponentAsync(new DiscordRichPresence(), Add);
 
             switch (RuntimeInfo.OS)
             {

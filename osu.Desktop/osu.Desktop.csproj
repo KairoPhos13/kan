@@ -44,6 +44,11 @@
   <ItemGroup Label="Resources">
     <EmbeddedResource Include="lazer.ico"/>
   </ItemGroup>
+  <!-- kan! rebrand (ADR-0011), fork F-21: kan!'s art and sounds (game/brand in the
+       kan-rhythm repository) ship in a brand folder that overrides osu!'s resources. -->
+  <ItemGroup Label="kan! brand" Condition="Exists('..\..\brand')">
+    <Content Include="..\..\brand\**\*" Exclude="..\..\brand\README.md" Link="brand\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest"/>
+  </ItemGroup>
   <ItemGroup Label="Windows Icons">
     <Content Include="*.ico" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest"/>
   </ItemGroup>

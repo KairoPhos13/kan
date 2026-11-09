@@ -55,7 +55,8 @@ namespace osu.Desktop.Updater
 
             try
             {
-                IUpdateSource updateSource = new GithubSource(@"https://github.com/ppy/osu", null, ReleaseStream.Value == Game.Configuration.ReleaseStream.Tachyon);
+                // kan! rebrand (ADR-0011), fork F-20: kan!'s own releases; osu!'s would install osu!lazer over kan!.
+                IUpdateSource updateSource = new GithubSource(@"https://github.com/KairoPhos/kan", null, ReleaseStream.Value == Game.Configuration.ReleaseStream.Tachyon);
                 Velopack.UpdateManager updateManager = new Velopack.UpdateManager(updateSource, new UpdateOptions
                 {
                     AllowVersionDowngrade = true

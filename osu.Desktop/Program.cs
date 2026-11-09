@@ -56,10 +56,10 @@ namespace osu.Desktop
                         // We could also better detect compatibility mode if required:
                         // https://stackoverflow.com/questions/10744651/how-i-can-detect-if-my-application-is-running-under-compatibility-mode#comment58183249_10744730
                         SDL3.SDL_ShowSimpleMessageBox(SDL_MessageBoxFlags.SDL_MESSAGEBOX_ERROR,
-                            "Your operating system is too old to run osu!"u8,
-                            "This version of osu! requires at least Windows 8.1 to run.\n"u8
-                            + "Please upgrade your operating system or consider using an older version of osu!.\n\n"u8
-                            + "If you are running a newer version of windows, please check you don't have \"Compatibility mode\" turned on for osu!"u8, null);
+                            "Your operating system is too old to run kan!"u8,
+                            "This version of kan! requires at least Windows 8.1 to run.\n"u8
+                            + "Please upgrade your operating system or consider using an older version of kan!.\n\n"u8
+                            + "If you are running a newer version of windows, please check you don't have \"Compatibility mode\" turned on for kan!"u8, null); // kan! rebrand (ADR-0011)
                         return;
                     }
                 }
@@ -197,9 +197,10 @@ namespace osu.Desktop
 
             app.OnFirstRun(_ => isFirstRun = true);
 
-            if (OperatingSystem.IsWindows())
-                configureWindows(app);
-
+            // kan! rebrand (ADR-0011), fork F-20: no file or link associations. osu!'s claim
+            // .osz/.osr/.osk and osu:// under osu!'s own registry key: installing them would take
+            // them from an installed osu!, and uninstalling kan! would remove osu!'s.
+            // configureWindows is kept for when kan! has its own file types.
             app.Run();
         }
 

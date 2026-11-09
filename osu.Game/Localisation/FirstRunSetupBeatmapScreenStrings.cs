@@ -1,5 +1,6 @@
 // Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
+// kan! rebrand (ADR-0011): strings meaning the game itself say kan! (English only).
 
 using osu.Framework.Localisation;
 
@@ -15,9 +16,9 @@ namespace osu.Game.Localisation
         public static LocalisableString Header => new TranslatableString(getKey(@"header"), @"Obtaining Beatmaps");
 
         /// <summary>
-        /// "&quot;Beatmaps&quot; are what we call sets of playable levels. osu! doesn&#39;t come with any beatmaps pre-loaded. This step will help you get started on your beatmap collection."
+        /// "&quot;Beatmaps&quot; are what we call sets of playable levels. kan! doesn&#39;t come with any beatmaps pre-loaded. This step will help you get started on your beatmap collection."
         /// </summary>
-        public static LocalisableString Description => new TranslatableString(getKey(@"description"), @"""Beatmaps"" are what we call sets of playable levels. osu! doesn't come with any beatmaps pre-loaded. This step will help you get started on your beatmap collection.");
+        public static LocalisableString Description => new TranslatableString(getKey(@"description"), @"""Beatmaps"" are what we call sets of playable levels. kan! doesn't come with any beatmaps pre-loaded. This step will help you get started on your beatmap collection.");
 
         /// <summary>
         /// "If you are a new player, we recommend playing through the tutorial to get accustomed to the gameplay."

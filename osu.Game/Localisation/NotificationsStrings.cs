@@ -1,5 +1,6 @@
 // Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
+// kan! rebrand (ADR-0011): strings meaning the game itself say kan! (English only).
 
 using osu.Framework.Localisation;
 
@@ -45,11 +46,11 @@ namespace osu.Game.Localisation
         public static LocalisableString NoAutoplayMod => new TranslatableString(getKey(@"no_autoplay_mod"), @"The current ruleset doesn't have an autoplay mod available!");
 
         /// <summary>
-        /// "osu! doesn&#39;t seem to be able to play audio correctly.
+        /// "kan! doesn&#39;t seem to be able to play audio correctly.
         ///
         /// Please try changing your audio device to a working setting."
         /// </summary>
-        public static LocalisableString AudioPlaybackIssue => new TranslatableString(getKey(@"audio_playback_issue"), @"osu! doesn't seem to be able to play audio correctly.
+        public static LocalisableString AudioPlaybackIssue => new TranslatableString(getKey(@"audio_playback_issue"), @"kan! doesn't seem to be able to play audio correctly.
 
 Please try changing your audio device to a working setting.");
 
@@ -104,10 +105,10 @@ Please try changing your audio device to a working setting.");
         public static LocalisableString MismatchingBeatmapForReplay => new TranslatableString(getKey(@"mismatching_beatmap_for_replay"), @"Your local copy of the beatmap for this replay appears to be different than expected. You may need to update or re-download it.");
 
         /// <summary>
-        /// "You are now running osu! {0}.
+        /// "You are now running kan! {0}.
         /// Click to see what&#39;s new!"
         /// </summary>
-        public static LocalisableString GameVersionAfterUpdate(string version) => new TranslatableString(getKey(@"game_version_after_update"), @"You are now running osu! {0}.
+        public static LocalisableString GameVersionAfterUpdate(string version) => new TranslatableString(getKey(@"game_version_after_update"), @"You are now running kan! {0}.
 Click to see what's new!", version);
 
         /// <summary>
@@ -151,9 +152,9 @@ Click to see what's new!", version);
         public static LocalisableString FriendOffline(string info) => new TranslatableString(getKey(@"friend_offline"), @"Offline: {0}", info);
 
         /// <summary>
-        /// "Connection to online services was interrupted. osu! will be operating with limited functionality."
+        /// "Connection to online services was interrupted. kan! will be operating with limited functionality."
         /// </summary>
-        public static LocalisableString APIConnectionInterrupted => new TranslatableString(getKey(@"api_connection_interrupted"), @"Connection to online services was interrupted. osu! will be operating with limited functionality.");
+        public static LocalisableString APIConnectionInterrupted => new TranslatableString(getKey(@"api_connection_interrupted"), @"Connection to online services was interrupted. kan! will be operating with limited functionality.");
 
         /// <summary>
         /// "You have been logged out on this device due to a login to your account on another device."
@@ -196,9 +197,9 @@ Click to see what's new!", version);
         public static LocalisableString ErrorAutomaticallyReported => new TranslatableString(getKey(@"error_automatically_reported"), @"This error has been automatically reported to the dev team.");
 
         /// <summary>
-        /// "A newer release of osu! has been found ({0} → {1})."
+        /// "A newer release of kan! has been found ({0} → {1})."
         /// </summary>
-        public static LocalisableString UpdateAvailable(string oldVersion, string newVersion) => new TranslatableString(getKey(@"update_available"), @"A newer release of osu! has been found ({0} → {1}).", oldVersion, newVersion);
+        public static LocalisableString UpdateAvailable(string oldVersion, string newVersion) => new TranslatableString(getKey(@"update_available"), @"A newer release of kan! has been found ({0} → {1}).", oldVersion, newVersion);
 
         /// <summary>
         /// "Click here to download the new version, which can be installed over the top of your existing installation."
@@ -206,9 +207,9 @@ Click to see what's new!", version);
         public static LocalisableString UpdateAvailableManualInstall => new TranslatableString(getKey(@"update_available_manual_install"), @"Click here to download the new version, which can be installed over the top of your existing installation.");
 
         /// <summary>
-        /// "Check with your package manager / provider to bring osu! up-to-date!"
+        /// "Check with your package manager / provider to bring kan! up-to-date!"
         /// </summary>
-        public static LocalisableString UpdateAvailablePackageManaged => new TranslatableString(getKey(@"update_available_package_managed"), @"Check with your package manager / provider to bring osu! up-to-date!");
+        public static LocalisableString UpdateAvailablePackageManaged => new TranslatableString(getKey(@"update_available_package_managed"), @"Check with your package manager / provider to bring kan! up-to-date!");
 
         /// <summary>
         /// "An action was interrupted due to a dialog being displayed."
@@ -236,14 +237,14 @@ Click to see what's new!", version);
         public static LocalisableString LogsExportFinished => new TranslatableString(getKey(@"logs_export_finished"), @"Exported logs! Click to view.");
 
         /// <summary>
-        /// "Running osu! as {0} does not improve performance, may break integrations and poses a security risk. Please run the game as a normal user."
+        /// "Running kan! as {0} does not improve performance, may break integrations and poses a security risk. Please run the game as a normal user."
         /// </summary>
-        public static LocalisableString ElevatedPrivileges(LocalisableString user) => new TranslatableString(getKey(@"elevated_privileges"), @"Running osu! as {0} does not improve performance, may break integrations and poses a security risk. Please run the game as a normal user.", user);
+        public static LocalisableString ElevatedPrivileges(LocalisableString user) => new TranslatableString(getKey(@"elevated_privileges"), @"Running kan! as {0} does not improve performance, may break integrations and poses a security risk. Please run the game as a normal user.", user);
 
         /// <summary>
-        /// "On macOS, installing osu! to a directory other than /Applications or {0}/Applications can cause issues with updating the game. Please move your game installation to one of these locations."
+        /// "On macOS, installing kan! to a directory other than /Applications or {0}/Applications can cause issues with updating the game. Please move your game installation to one of these locations."
         /// </summary>
-        public static LocalisableString MacOSAppLocation(LocalisableString userProfile) => new TranslatableString(getKey(@"macos_app_location"), @"On macOS, installing osu! to a directory other than /Applications or {0}/Applications can cause issues with updating the game. Please move your game installation to one of these locations.", userProfile);
+        public static LocalisableString MacOSAppLocation(LocalisableString userProfile) => new TranslatableString(getKey(@"macos_app_location"), @"On macOS, installing kan! to a directory other than /Applications or {0}/Applications can cause issues with updating the game. Please move your game installation to one of these locations.", userProfile);
 
         /// <summary>
         /// "Screenshot saved! Click to view.

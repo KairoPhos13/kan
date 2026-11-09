@@ -1,5 +1,6 @@
 // Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
+// kan! rebrand (ADR-0011): strings meaning the game itself say kan! (English only).
 
 using osu.Framework.Localisation;
 
@@ -60,9 +61,9 @@ namespace osu.Game.Localisation
         public static LocalisableString CheckingForUpdates => new TranslatableString(getKey(@"checking_for_updates"), @"Checking for updates");
 
         /// <summary>
-        /// "Open osu! folder"
+        /// "Open kan! folder"
         /// </summary>
-        public static LocalisableString OpenOsuFolder => new TranslatableString(getKey(@"open_osu_folder"), @"Open osu! folder");
+        public static LocalisableString OpenOsuFolder => new TranslatableString(getKey(@"open_osu_folder"), @"Open kan! folder");
 
         /// <summary>
         /// "Export logs"
@@ -75,9 +76,9 @@ namespace osu.Game.Localisation
         public static LocalisableString ChangeFolderLocation => new TranslatableString(getKey(@"change_folder_location"), @"Change folder location...");
 
         /// <summary>
-        /// "Move your current data to a new folder, or point osu! to backed-up data at an existing location."
+        /// "Move your current data to a new folder, or point kan! to backed-up data at an existing location."
         /// </summary>
-        public static LocalisableString ChangeFolderLocationTooltip => new TranslatableString(getKey(@"change_folder_location_tooltip"), @"Move your current data to a new folder, or point osu! to backed-up data at an existing location.");
+        public static LocalisableString ChangeFolderLocationTooltip => new TranslatableString(getKey(@"change_folder_location_tooltip"), @"Move your current data to a new folder, or point kan! to backed-up data at an existing location.");
 
         /// <summary>
         /// "Run setup wizard"
