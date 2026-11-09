@@ -33,22 +33,8 @@ namespace osu.Game.Overlays.Settings.Sections.UserInterface
                     Caption = UserInterfaceStrings.ShowMenuTips,
                     Current = config.GetBindable<bool>(OsuSetting.MenuTips)
                 }),
-                new SettingsItemV2(new FormCheckBox
-                {
-                    Caption = UserInterfaceStrings.InterfaceVoices,
-                    Current = config.GetBindable<bool>(OsuSetting.MenuVoice)
-                })
-                {
-                    Keywords = new[] { "intro", "welcome" },
-                },
-                new SettingsItemV2(new FormCheckBox
-                {
-                    Caption = UserInterfaceStrings.OsuMusicTheme,
-                    Current = config.GetBindable<bool>(OsuSetting.MenuMusic)
-                })
-                {
-                    Keywords = new[] { "intro", "welcome" },
-                },
+                // kan! rebrand (ADR-0011, fork F-22): "Interface voices" and "osu! music theme" are
+                // hidden: kan! never plays osu!'s voice or theme (see IntroScreen).
                 new SettingsItemV2(new FormEnumDropdown<IntroSequence>
                 {
                     Caption = UserInterfaceStrings.IntroSequence,

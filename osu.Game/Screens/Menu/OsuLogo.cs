@@ -188,7 +188,8 @@ namespace osu.Game.Screens.Menu
                                                                         new Box
                                                                         {
                                                                             RelativeSizeAxes = Axes.Both,
-                                                                            Colour = ColourInfo.GradientVertical(Color4Extensions.FromHex(@"ff66ab"), Color4Extensions.FromHex(@"cc5289")),
+                                                                            // kan! rebrand (ADR-0011, fork F-22): the logo's disc is gold (was osu!'s pink)
+                                                                            Colour = ColourInfo.GradientVertical(Color4Extensions.FromHex(@"ffc23d"), Color4Extensions.FromHex(@"ffa600")),
                                                                         },
                                                                         triangles = new TrianglesV2
                                                                         {
@@ -197,7 +198,7 @@ namespace osu.Game.Screens.Menu
                                                                             Thickness = 0.009f,
                                                                             ScaleAdjust = 3,
                                                                             SpawnRatio = 1.4f,
-                                                                            Colour = ColourInfo.GradientVertical(Color4Extensions.FromHex(@"ff66ab"), Color4Extensions.FromHex(@"b6346f")),
+                                                                            Colour = ColourInfo.GradientVertical(Color4Extensions.FromHex(@"ffd98a"), Color4Extensions.FromHex(@"e08e00")), // kan! (F-22)
                                                                             RelativeSizeAxes = Axes.Both,
                                                                         },
                                                                     }

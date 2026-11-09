@@ -113,8 +113,11 @@ namespace osu.Game.Screens.Menu
             // prevent user from changing beatmap while the intro is still running.
             beatmap = Beatmap.BeginLease(false);
 
-            MenuVoice = config.GetBindable<bool>(OsuSetting.MenuVoice);
-            MenuMusic = config.GetBindable<bool>(OsuSetting.MenuMusic);
+            // kan! rebrand (ADR-0011, fork F-22): osu!'s voice ("welcome to osu!", "see ya") and its
+            // theme music are never played, whatever the stored settings say. The intro plays one
+            // of the player's own levels, or starts in silence.
+            MenuVoice = new BindableBool(false);
+            MenuMusic = new BindableBool(false);
 
             if (api.LocalUser.Value.IsSupporter)
                 AddInternal(skinnableSeeya = new SkinnableSound(new SampleInfo(SeeyaSampleName)));
@@ -141,7 +144,11 @@ namespace osu.Game.Screens.Menu
             }
 
             // we generally want a song to be playing on startup, so use the intro music even if a user has specified not to if no other track is available.
-            if (initialBeatmap == null)
+            // kan! rebrand (ADR-0011, fork F-22): osu!'s theme track is never used; with no level of
+            // the player's own, the intro is silent. Re-enable once kan! has its own intro music.
+            const bool use_themed_intro = false;
+
+            if (use_themed_intro && initialBeatmap == null)
             {
                 // Intro beatmaps are generally made using the osu! ruleset.
                 // It might not be present in test projects for other rulesets.
