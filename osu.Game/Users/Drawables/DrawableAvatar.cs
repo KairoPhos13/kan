@@ -37,7 +37,13 @@ namespace osu.Game.Users.Drawables
             if (user != null && user.OnlineID > 1)
                 // TODO: The fallback here should not need to exist. Users should be looked up and populated via UserLookupCache or otherwise
                 // in remaining cases where this is required (chat tabs, local leaderboard), at which point this should be removed.
-                Texture = onlineTextures.Get((user as APIUser)?.AvatarUrl ?? $@"https://a.ppy.sh/{user.OnlineID}");
+            {
+                // kan! rebrand (ADR-0011, fork F-24): no fallback to osu!'s avatar host; a user
+                // without an avatar address gets the default avatar (and no blocked-lookup warning).
+                string avatarUrl = (user as APIUser)?.AvatarUrl;
+                if (!string.IsNullOrEmpty(avatarUrl))
+                    Texture = onlineTextures.Get(avatarUrl);
+            }
 
             Texture ??= textures.Get(@"Online/avatar-guest");
         }

@@ -11,7 +11,8 @@ namespace osu.Game.Online
     {
         protected override string GetLookupUrl(string url)
         {
-            if (!Uri.TryCreate(url, UriKind.Absolute, out Uri? uri) || !uri.Host.EndsWith(@".ppy.sh", StringComparison.OrdinalIgnoreCase))
+            // kan! rebrand (ADR-0011, fork F-24): only kan!'s own server is trusted, never osu!'s.
+            if (!Uri.TryCreate(url, UriKind.Absolute, out Uri? uri) || !KanEndpointConfiguration.IsTrustedHost(uri))
             {
                 Logger.Log($@"Blocking resource lookup from external website: {url}", LoggingTarget.Network, LogLevel.Important);
                 return string.Empty;

@@ -67,8 +67,8 @@ namespace osu.Game.Screens.Menu
 
         private void checkForUpdates()
         {
-            // kan! rebrand (ADR-0011), fork F-20: the banner's content comes from osu!'s servers.
-            if (!FetchOnlineContent || !KanEndpointConfiguration.HasServer)
+            // kan! rebrand (ADR-0011), fork F-20/F-24: the banner's content comes from osu!'s servers.
+            if (!FetchOnlineContent || !KanEndpointConfiguration.UsesOsuAssets)
                 return;
 
             var request = new GetMenuContentRequest();

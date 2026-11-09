@@ -176,8 +176,8 @@ namespace osu.Game.Beatmaps
             if (DebugUtils.IsNUnitRunning)
                 return Task.CompletedTask;
 
-            // kan! rebrand (ADR-0011), fork F-20: the cache is osu!'s ranked beatmaps, from osu!'s servers.
-            if (!KanEndpointConfiguration.HasServer)
+            // kan! rebrand (ADR-0011), fork F-20/F-24: the cache is osu!'s ranked beatmaps, from osu!'s servers.
+            if (!KanEndpointConfiguration.UsesOsuAssets)
                 return Task.CompletedTask;
 
             bool isRefetch = storage.Exists(cache_database_name);

@@ -82,8 +82,8 @@ namespace osu.Game.Screens.Menu
         {
             base.LoadComplete();
 
-            // kan! rebrand (ADR-0011), fork F-20: no "become an osu!supporter" in kan!.
-            if (!KanEndpointConfiguration.HasServer)
+            // kan! rebrand (ADR-0011), fork F-20/F-24: no "become an osu!supporter" in kan!.
+            if (!KanEndpointConfiguration.UsesOsuAssets)
             {
                 Hide();
                 return;
