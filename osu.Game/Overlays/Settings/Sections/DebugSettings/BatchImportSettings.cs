@@ -4,6 +4,7 @@
 using osu.Framework.Allocation;
 using osu.Framework.Localisation;
 using osu.Game.Database;
+using osu.Game.Online;
 
 namespace osu.Game.Overlays.Settings.Sections.DebugSettings
 {
@@ -19,7 +20,10 @@ namespace osu.Game.Overlays.Settings.Sections.DebugSettings
         [BackgroundDependencyLoader]
         private void load(LegacyImportManager? legacyImportManager)
         {
-            if (legacyImportManager?.SupportsImportFromStable != true)
+            // kan! fork F-28: importing from osu!stable is never offered in kan!: it plays
+            // .kan levels, not osu! beatmaps. The buttons and the importer code stay in the
+            // tree (rebase cost), unreachable from the UI.
+            if (!KanEndpointConfiguration.UsesOsuAssets || legacyImportManager?.SupportsImportFromStable != true)
                 return;
 
             AddRange(new[]

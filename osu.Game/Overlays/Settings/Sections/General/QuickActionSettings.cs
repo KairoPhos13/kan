@@ -12,7 +12,6 @@ using osu.Framework.Statistics;
 using osu.Game.Graphics;
 using osu.Game.IO;
 using osu.Game.Localisation;
-using osu.Game.Online.Chat;
 using osu.Game.Overlays.Notifications;
 using osu.Game.Utils;
 using SharpCompress.Archives.Zip;
@@ -39,24 +38,15 @@ namespace osu.Game.Overlays.Settings.Sections.General
                 new SettingsButtonV2
                 {
                     Text = GeneralSettingsStrings.RunSetupWizard,
-                    Keywords = new[] { @"first run", @"initial", @"getting started", @"import", @"tutorial", @"recommended beatmaps" },
+                    // kan! fork F-28: "tutorial" pointed at the osu! tutorial button, which
+                    // kan! does not have (F-24 removed it from the setup wizard).
+                    Keywords = new[] { @"first run", @"initial", @"getting started", @"import", @"recommended beatmaps" },
                     TooltipText = FirstRunSetupOverlayStrings.FirstRunSetupDescription,
                     Action = () => firstRunSetupOverlay?.Show(),
                 },
-                new SettingsButtonV2
-                {
-                    Text = GeneralSettingsStrings.LearnMoreAboutLazer,
-                    TooltipText = GeneralSettingsStrings.LearnMoreAboutLazerTooltip,
-                    BackgroundColour = colours.YellowDark,
-                    Action = () => game?.ShowWiki(@"Help_centre/Upgrading_to_lazer")
-                },
-                new SettingsButtonV2
-                {
-                    Text = GeneralSettingsStrings.ReportIssue,
-                    TooltipText = GeneralSettingsStrings.ReportIssueTooltip,
-                    BackgroundColour = colours.YellowDarker,
-                    Action = () => game?.OpenUrlExternally(@"https://osu.ppy.sh/community/forums/topics/create?forum_id=5", LinkWarnMode.NeverWarn)
-                },
+                // kan! fork F-28: "Learn more about lazer" (osu!'s wiki) and "Report an issue"
+                // (osu!'s forums) are hidden: they lead into osu!'s world, not kan!'s. What
+                // replaces them (kan!'s own help and issue tracker) is the maintainer's call.
             });
 
             Add(new SettingsButtonV2

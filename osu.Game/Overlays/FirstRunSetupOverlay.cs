@@ -7,6 +7,7 @@ using osu.Framework.Graphics.Sprites;
 using osu.Game.Configuration;
 using osu.Game.Database;
 using osu.Game.Localisation;
+using osu.Game.Online;
 using osu.Game.Overlays.FirstRunSetup;
 using osu.Game.Overlays.Notifications;
 using osu.Game.Screens;
@@ -39,7 +40,10 @@ namespace osu.Game.Overlays
             AddStep<ScreenWelcome>();
             AddStep<ScreenUIScale>();
             AddStep<ScreenBeatmaps>();
-            if (legacyImportManager?.SupportsImportFromStable == true)
+            // kan! fork F-28: the osu!stable import step is never offered: kan! plays .kan
+            // levels, not osu! beatmaps (conversion is future work in tools/). The step and
+            // the importer code stay in the tree (rebase cost).
+            if (KanEndpointConfiguration.UsesOsuAssets && legacyImportManager?.SupportsImportFromStable == true)
                 AddStep<ScreenImportFromStable>();
             AddStep<ScreenBehaviour>();
 

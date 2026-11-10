@@ -36,6 +36,8 @@ namespace osu.Game.Online
         /// <summary>
         /// osu!'s own extras (menu news banner, supporter note, osu!'s ranked-beatmap metadata
         /// cache) come from osu!'s servers whatever the API address is: always off in kan!.
+        /// Also guards osu!-only features that promise osu! compatibility (the osu!stable
+        /// import; fork F-28).
         /// </summary>
         public static bool UsesOsuAssets => false;
 
