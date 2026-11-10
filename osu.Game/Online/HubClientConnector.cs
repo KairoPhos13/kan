@@ -50,8 +50,13 @@ namespace osu.Game.Online
             Start();
         }
 
-        protected override Task<PersistentEndpointClient> BuildConnectionAsync(CancellationToken cancellationToken)
+        protected override Task<PersistentEndpointClient?> BuildConnectionAsync(CancellationToken cancellationToken)
         {
+            // kan! fork F-27: an empty endpoint means there is no hub to connect to (kan!'s server runs
+            // no realtime services). Report "no connection" rather than building one that cannot work.
+            if (string.IsNullOrEmpty(endpoint))
+                return Task.FromResult<PersistentEndpointClient?>(null);
+
             var builder = new HubConnectionBuilder()
                 .WithUrl(endpoint, options =>
                 {
@@ -73,7 +78,7 @@ namespace osu.Game.Online
 
             ConfigureConnection?.Invoke(newConnection);
 
-            return Task.FromResult((PersistentEndpointClient)new HubClient(newConnection));
+            return Task.FromResult<PersistentEndpointClient?>(new HubClient(newConnection));
         }
 
         async Task IHubClientConnector.Disconnect()

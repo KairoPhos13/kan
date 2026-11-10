@@ -27,13 +27,20 @@ namespace osu.Game.Online.Notifications.WebSocket
             Start();
         }
 
-        protected override async Task<PersistentEndpointClient> BuildConnectionAsync(CancellationToken cancellationToken)
+        protected override async Task<PersistentEndpointClient?> BuildConnectionAsync(CancellationToken cancellationToken)
         {
             var req = new GetNotificationsRequest();
             // must use `PerformAsync()`, since we may not be fully online yet
             // (see `APIState.RequiresSecondFactorAuth` - in this state queued requests will not execute).
             await api.PerformAsync(req).ConfigureAwait(false);
-            string endpoint = req.Response!.Endpoint;
+
+            // kan! fork F-27: the websocket endpoint is given by the server. A server without realtime
+            // services answers without one (or does not answer the request at all); there is then nothing
+            // to connect to, so report "no connection" instead of connecting or failing repeatedly.
+            string? endpoint = req.Response?.Endpoint;
+
+            if (string.IsNullOrEmpty(endpoint))
+                return null;
 
             ClientWebSocket socket = new ClientWebSocket();
             socket.Options.SetRequestHeader(@"Authorization", @$"Bearer {api.AccessToken}");

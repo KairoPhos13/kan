@@ -35,7 +35,9 @@ namespace osu.Game.Tests
             Start();
         }
 
-        protected sealed override Task<PersistentEndpointClient> BuildConnectionAsync(CancellationToken cancellationToken)
+        // kan! fork F-27: `BuildConnectionAsync` may report "no connection" when the remote service
+        // has no endpoint; this test client always polls over HTTP, so the signature is the only delta.
+        protected sealed override Task<PersistentEndpointClient?> BuildConnectionAsync(CancellationToken cancellationToken)
         {
             var client = new PollingChatClient(API);
 
@@ -43,7 +45,7 @@ namespace osu.Game.Tests
             client.NewMessages += m => NewMessages?.Invoke(m);
             client.PresenceReceived += () => PresenceReceived?.Invoke();
 
-            return Task.FromResult<PersistentEndpointClient>(client);
+            return Task.FromResult<PersistentEndpointClient?>(client);
         }
     }
 }

@@ -105,12 +105,24 @@ namespace osu.Game.Online
 
                     cancellationToken.ThrowIfCancellationRequested();
 
-                    Logger.Log($"{ClientName} connecting...", LoggingTarget.Network);
-
                     try
                     {
                         // importantly, rebuild the connection each attempt to get an updated access token.
                         CurrentConnection = await BuildConnectionAsync(cancellationToken).ConfigureAwait(false);
+
+                        // kan! fork F-27: a null connection means the remote service has no endpoint to
+                        // connect to (an empty endpoint URL, or a server which offers no notifications
+                        // websocket endpoint). Settle in a disconnected state and stop here: no connection
+                        // attempt is made, and there is no retry loop and no exception to log.
+                        if (CurrentConnection == null)
+                        {
+                            Logger.Log($"{ClientName} has no endpoint to connect to; the service is not available.", LoggingTarget.Network);
+                            isConnected.Value = false;
+                            return;
+                        }
+
+                        Logger.Log($"{ClientName} connecting...", LoggingTarget.Network);
+
                         CurrentConnection.Closed += ex => onConnectionClosed(ex, cancellationToken);
 
                         cancellationToken.ThrowIfCancellationRequested();
@@ -158,7 +170,12 @@ namespace osu.Game.Online
         /// Creates a new <see cref="PersistentEndpointClient"/>.
         /// </summary>
         /// <param name="cancellationToken">A cancellation token to stop the process.</param>
-        protected abstract Task<PersistentEndpointClient> BuildConnectionAsync(CancellationToken cancellationToken);
+        /// <returns>
+        /// The connection to use, or <see langword="null"/> when the remote service has no endpoint to
+        /// connect to. The connector then settles in a disconnected state without further attempts
+        /// (kan! fork F-27).
+        /// </returns>
+        protected abstract Task<PersistentEndpointClient?> BuildConnectionAsync(CancellationToken cancellationToken);
 
         private async Task onConnectionClosed(Exception? ex, CancellationToken cancellationToken)
         {
