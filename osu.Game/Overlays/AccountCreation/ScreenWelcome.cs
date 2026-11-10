@@ -59,7 +59,9 @@ namespace osu.Game.Overlays.AccountCreation
                     {
                         Text = AccountCreationStrings.LetsCreateAnAccount,
                         Margin = new MarginPadding { Vertical = 120 },
-                        Action = () => this.Push(new ScreenWarning())
+                        // kan! fork F-26: straight to the form; osu!'s ScreenWarning (one account
+                        // per person, osu!'s help centre) is not kan!'s policy.
+                        Action = () => this.Push(new ScreenEntry())
                     }
                 }
             };

@@ -13,8 +13,8 @@ namespace osu.Game.Online
     /// </summary>
     public class KanEndpointConfiguration : EndpointConfiguration
     {
-        /// <summary>kan!'s public server. Empty until it is deployed.</summary>
-        private const string default_server_url = @"";
+        /// <summary>kan!'s public server (`server/app`, deployed 2026-11-10).</summary>
+        private const string default_server_url = @"https://kan-api.kairophos.link";
 
         /// <summary>
         /// The OAuth client of the game. Like osu!lazer's, it is public by nature (it ships

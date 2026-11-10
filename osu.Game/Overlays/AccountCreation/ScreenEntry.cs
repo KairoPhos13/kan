@@ -137,8 +137,10 @@ namespace osu.Game.Overlays.AccountCreation
 
             usernameDescription.AddText(AccountCreationStrings.UsernameDescription);
 
-            emailAddressDescription.AddText(AccountCreationStrings.EmailDescription1);
-            emailAddressDescription.AddText(AccountCreationStrings.EmailDescription2, cp => cp.Font = cp.Font.With(Typeface.Torus, weight: FontWeight.Bold));
+            // kan! fork F-26: kan!'s server sends no email (no verification, no password reset),
+            // so osu!'s promise about notifications and recovery would be untrue here.
+            emailAddressDescription.AddText("Only used to tell accounts apart; it is never shown to anyone. kan! sends no email yet, so there is no password reset:");
+            emailAddressDescription.AddText(" keep your password somewhere safe.", cp => cp.Font = cp.Font.With(Typeface.Torus, weight: FontWeight.Bold));
 
             passwordDescription.AddText("At least ");
             characterCheckText = passwordDescription.AddText("8 characters long");
