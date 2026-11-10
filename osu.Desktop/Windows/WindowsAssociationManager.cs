@@ -41,7 +41,12 @@ namespace osu.Desktop.Windows
 
         private const string program_id_protocol_prefix = "osu.Uri";
 
-        private static readonly ApplicationCapability application_capability = new ApplicationCapability(@"osu", @"Software\ppy\osu\Capabilities", "osu!(lazer)");
+        // kan! rebrand (ADR-0011): the application description names this
+        // game (kan!), never osu!. The file types and link schemes below are
+        // still osu!'s until kan!'s own naming is decided (fork-divergence.md,
+        // "String sweep: remaining scope"), and none of this is installed
+        // since fork F-20.
+        private static readonly ApplicationCapability application_capability = new ApplicationCapability(@"osu", @"Software\ppy\osu\Capabilities", "kan!");
 
         private static readonly FileAssociation[] file_associations =
         {

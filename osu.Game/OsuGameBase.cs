@@ -601,7 +601,7 @@ namespace osu.Game
         /// <exception cref="TimeoutException"></exception>
         public bool MigrateUserData(string path)
         {
-            Logger.Log($@"Migrating osu! data from ""{Storage.GetFullPath(string.Empty)}"" to ""{path}""...");
+            Logger.Log($@"Migrating kan! data from ""{Storage.GetFullPath(string.Empty)}"" to ""{path}""..."); // kan! rebrand (ADR-0011)
 
             IDisposable realmBlocker = null;
 

@@ -17,7 +17,10 @@ namespace osu.Desktop
     [SupportedOSPlatform("windows")]
     internal static class NVAPI
     {
-        private const string osu_filename = "osu!.exe";
+        // kan! rebrand (ADR-0011): the executable is kan.exe (osu.Desktop's
+        // assembly name is kan), so the NVIDIA profile matches it and the
+        // profile names use that same neutral "kan" spelling, never osu!.
+        private const string osu_filename = "kan.exe";
 
         // This is a good reference:
         // https://github.com/errollw/Warp-and-Blend-Quadros/blob/master/WarpBlend-Quadros/UnwarpAll-Quadros/include/nvapi.h
@@ -26,8 +29,8 @@ namespace osu.Desktop
         public const int MAX_PHYSICAL_GPUS = 64;
         public const int UNICODE_STRING_MAX = 2048;
 
-        public const string APPLICATION_NAME = @"osu!";
-        public const string PROFILE_NAME = @"osu!";
+        public const string APPLICATION_NAME = @"kan"; // kan! rebrand (ADR-0011)
+        public const string PROFILE_NAME = @"kan"; // kan! rebrand (ADR-0011)
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate NvStatus EnumPhysicalGPUsDelegate([Out] IntPtr[] gpuHandles, out int gpuCount);

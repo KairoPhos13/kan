@@ -281,7 +281,7 @@ namespace osu.Game.Database
                     if (realm.All<ScoreInfo>().Any())
                     {
                         Logger.Log(@"Recovery aborted as the existing database has scores set already.", LoggingTarget.Database);
-                        Logger.Log($@"To perform recovery, delete {OsuGameBase.CLIENT_DATABASE_FILENAME} while osu! is not running.", LoggingTarget.Database);
+                        Logger.Log($@"To perform recovery, delete {OsuGameBase.CLIENT_DATABASE_FILENAME} while kan! is not running.", LoggingTarget.Database); // kan! rebrand (ADR-0011)
                         return;
                     }
                 }
@@ -301,7 +301,7 @@ namespace osu.Game.Database
             }
             catch
             {
-                Logger.Log(@"Recovery aborted as the newer version could not be loaded by this osu! version.", LoggingTarget.Database);
+                Logger.Log(@"Recovery aborted as the newer version could not be loaded by this kan! version.", LoggingTarget.Database); // kan! rebrand (ADR-0011)
                 return;
             }
 
@@ -350,7 +350,7 @@ namespace osu.Game.Database
                 // This is the best way we can detect a schema version downgrade.
                 if (e.Message.StartsWith(@"Provided schema version", StringComparison.Ordinal))
                 {
-                    Logger.Error(e, "Your local database is too new to work with this version of osu!. Please close osu! and install the latest release to recover your data.");
+                    Logger.Error(e, "Your local database is too new to work with this version of kan!. Please close kan! and install the latest release to recover your data."); // kan! rebrand (ADR-0011)
 
                     // If a newer version database already exists, don't create another backup. We can presume that the first backup is the one we care about.
                     if (!storage.Exists(newerVersionFilename))

@@ -121,7 +121,7 @@ namespace osu.Desktop
                     // we want to allow multiple instances to be started when in debug.
                     if (!DebugUtils.IsDebugBuild)
                     {
-                        Logger.Log(@"osu! does not support multiple running instances.", LoggingTarget.Runtime, LogLevel.Error);
+                        Logger.Log(@"kan! does not support multiple running instances.", LoggingTarget.Runtime, LogLevel.Error); // kan! rebrand (ADR-0011)
                         return;
                     }
                 }

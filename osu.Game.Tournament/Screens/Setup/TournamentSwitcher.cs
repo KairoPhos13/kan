@@ -36,7 +36,7 @@ namespace osu.Game.Tournament.Screens.Setup
             };
             folderButton.Action = () => storage.PresentExternally();
 
-            ButtonText = "Close osu!";
+            ButtonText = "Close kan!"; // kan! rebrand (ADR-0011)
         }
 
         protected override Drawable CreateComponent()

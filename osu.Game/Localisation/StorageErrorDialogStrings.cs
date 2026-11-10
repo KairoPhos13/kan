@@ -1,5 +1,6 @@
 // Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
 // See the LICENCE file in the repository root for full licence text.
+// kan! rebrand (ADR-0011): strings meaning the game itself say kan! (English only).
 
 using osu.Framework.Localisation;
 
@@ -10,19 +11,19 @@ namespace osu.Game.Localisation
         private const string prefix = @"osu.Game.Resources.Localisation.StorageErrorDialog";
 
         /// <summary>
-        /// "osu! storage error"
+        /// "kan! storage error"
         /// </summary>
-        public static LocalisableString StorageError => new TranslatableString(getKey(@"storage_error"), @"osu! storage error");
+        public static LocalisableString StorageError => new TranslatableString(getKey(@"storage_error"), @"kan! storage error");
 
         /// <summary>
-        /// "The specified osu! data location (&quot;{0}&quot;) is not accessible. If it is on external storage, please reconnect the device and try again."
+        /// "The specified kan! data location (&quot;{0}&quot;) is not accessible. If it is on external storage, please reconnect the device and try again."
         /// </summary>
-        public static LocalisableString LocationIsNotAccessible(string? loc) => new TranslatableString(getKey(@"location_is_not_accessible"), @"The specified osu! data location (""{0}"") is not accessible. If it is on external storage, please reconnect the device and try again.", loc);
+        public static LocalisableString LocationIsNotAccessible(string? loc) => new TranslatableString(getKey(@"location_is_not_accessible"), @"The specified kan! data location (""{0}"") is not accessible. If it is on external storage, please reconnect the device and try again.", loc);
 
         /// <summary>
-        /// "The specified osu! data location (&quot;{0}&quot;) is empty. If you have moved the files, please close osu! and move them back."
+        /// "The specified kan! data location (&quot;{0}&quot;) is empty. If you have moved the files, please close kan! and move them back."
         /// </summary>
-        public static LocalisableString LocationIsEmpty(string? loc2) => new TranslatableString(getKey(@"location_is_empty"), @"The specified osu! data location (""{0}"") is empty. If you have moved the files, please close osu! and move them back.", loc2);
+        public static LocalisableString LocationIsEmpty(string? loc2) => new TranslatableString(getKey(@"location_is_empty"), @"The specified kan! data location (""{0}"") is empty. If you have moved the files, please close kan! and move them back.", loc2);
 
         /// <summary>
         /// "Try again"
