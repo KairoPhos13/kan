@@ -1,5 +1,5 @@
 // Copyright (c) kan-rhythm contributors. Licensed under the MIT Licence.
-// kan! rebrand (ADR-0011): new kan! code — no upstream code adapted in this file.
+// kan! rebrand (ADR-0011): new kan! code; no upstream code adapted in this file.
 
 using System;
 using System.IO;
@@ -41,7 +41,7 @@ namespace Kan.Client
 
             Add(new OsuSpriteText
             {
-                Text = @"Built on osu!lazer (MIT) — ppy/osu contributors",
+                Text = @"Built on osu!lazer (MIT), ppy/osu contributors",
                 Font = OsuFont.GetFont(size: 14),
             });
 

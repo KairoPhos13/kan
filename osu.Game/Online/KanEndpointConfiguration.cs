@@ -1,5 +1,5 @@
 // Copyright (c) kan-rhythm contributors. Licensed under the MIT Licence.
-// kan! rebrand (ADR-0011): new kan! code — no upstream code adapted in this file.
+// kan! rebrand (ADR-0011): new kan! code; no upstream code adapted in this file.
 
 using System;
 

@@ -53,7 +53,7 @@ namespace osu.Game.Screens.Edit.Components.Timelines.Summary.Parts
         {
             // If the track is not loaded, assign a default sane length otherwise relative positioning becomes meaningless.
             // kan! fork F-12: follow the clock's source (as the time display and seeking do) rather than the
-            // beatmap track — a ruleset screen may run the editor clock on another source (kan!forge track tab).
+            // beatmap track: a ruleset screen may run the editor clock on another source (kan!forge track tab).
             double trackLength = editorClock.TrackLength;
             content.RelativeChildSize = new Vector2((float)Math.Max(1, trackLength), 1);
 

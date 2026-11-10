@@ -1,6 +1,6 @@
-# THIRD PARTY NOTICES — kan! client
+# THIRD PARTY NOTICES: kan! client
 
-Generated 2026-10-12 by `game/tools/gen-third-party-notices.py` (monorepo kan-rhythm). Do not edit by hand — regenerate instead.
+Generated 2026-10-12 by `game/tools/gen-third-party-notices.py` (monorepo kan-rhythm). Do not edit by hand: regenerate instead.
 
 The kan! client is built on the osu!lazer fork (github.com/KairoPhos13/kan, itself a fork of `ppy/osu`). This file lists every redistributed third-party component and its licence, and is shown on the in-game about screen. Licence *texts* of individual packages ship inside the corresponding NuGet package (`~/.nuget/packages/<id>/<version>/`); extract any of them with:
 
@@ -8,9 +8,9 @@ The kan! client is built on the osu!lazer fork (github.com/KairoPhos13/kan, itse
 
 ## 1. Base project
 
-- **osu!lazer** (`ppy/osu`) — MIT Licence — Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors. kan! is a rebranded fork (ADR-0011); upstream copyright headers are preserved in every adapted file.
-- **osu!framework** (`ppy/osu-framework`) — MIT Licence — Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors.
-- **osu! Game Resources** (`ppy.osu.Game.Resources`, © ppy Pty Ltd) — CC BY-NC 4.0 for most content, fonts under their own licences (https://github.com/ppy/osu-resources). Used non-commercially; kan!'s own art and sounds replace them as they are made (`brand/`). The osu! name and logo are ppy's trademarks.
+- **osu!lazer** (`ppy/osu`): MIT Licence, Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors. kan! is a rebranded fork (ADR-0011); upstream copyright headers are preserved in every adapted file.
+- **osu!framework** (`ppy/osu-framework`): MIT Licence, Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors.
+- **osu! Game Resources** (`ppy.osu.Game.Resources`, © ppy Pty Ltd): CC BY-NC 4.0 for most content, fonts under their own licences (https://github.com/ppy/osu-resources). Used non-commercially; kan!'s own art and sounds replace them as they are made (`brand/`). The osu! name and logo are ppy's trademarks.
 
 Full text of the base project's licence (fork `LICENCE`):
 
@@ -36,7 +36,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
-## 2. BASS audio library (un4seen) — special terms
+## 2. BASS audio library (un4seen): special terms
 
 osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** (© 1999-2026 Un4seen Developments). BASS is **not** open source: it is free for non-commercial use and requires a commercial licence otherwise. kan!'s status (donation-funded) is analysed in `game/docs/bass-licensing.md`; the outcome of that analysis must be resolved before any donation-driven release (ADR-0010 §5). See https://www.un4seen.com/ for the authoritative terms.
 
@@ -170,7 +170,7 @@ osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** (© 1999-2026 Un4
 | `SharpGen.Runtime` | 2.0.0-beta.13 | MIT | https://github.com/SharpGenTools/SharpGenTools |
 | `SharpGen.Runtime.COM` | 2.0.0-beta.13 | MIT | https://github.com/SharpGenTools/SharpGenTools |
 | `SixLabors.ImageSharp` | 3.1.11 | Apache-2.0 (see licence file in package) | https://github.com/SixLabors/ImageSharp |
-| `SQLite` | 3.53.4 | (custom — see licence file in package) | https://sqlite.org/ |
+| `SQLite` | 3.53.4 | (custom; see licence file in package) | https://sqlite.org/ |
 | `SQLitePCLRaw.bundle_e_sqlite3` | 3.0.5 | Apache-2.0 | https://github.com/ericsink/SQLitePCL.raw |
 | `SQLitePCLRaw.config.e_sqlite3` | 3.0.5 | Apache-2.0 | https://github.com/ericsink/SQLitePCL.raw (96043b8cff32) |
 | `SQLitePCLRaw.core` | 3.0.5 | Apache-2.0 | https://github.com/ericsink/SQLitePCL.raw (ed046114d5a3) |
@@ -189,29 +189,29 @@ osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** (© 1999-2026 Un4
 
 ## 4. Warnings from the generator
 
-- ⚠⚠ FFmpeg.AutoGen 4.3.0.1: license 'LGPL (see licence file in package)' — GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver 0.6.7: license 'LGPL-3.0-or-later' — GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver.Configurations 0.6.7: license 'LGPL-3.0-or-later' — GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver.Native 0.6.7: license 'LGPL-3.0-or-later' — GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver.Plugin 0.6.7: license 'LGPL-3.0-or-later' — GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ TagLibSharp 2.3.0: license 'LGPL-2.1-only' — GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠ HidSharpCore 1.3.0: license '(unknown)' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.managed-midi 1.10.2: license 'see https://github.com/atsushieno/managed-midi/LICENSE' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.osu.Game.Resources 2026.1008.0: license 'see https://github.com/ppy/osu-resources/blob/master/LICENCE.md' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.osuTK.NS20 1.0.211: license '(unknown)' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.SDL2-CS 1.0.741-alpha: license '(unknown)' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.Veldrid 4.9.69-ga405fe8484: license 'see https://raw.githubusercontent.com/ppy/veldrid/master/LICENSE' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.Veldrid.MetalBindings 4.9.69-ga405fe8484: license 'see https://raw.githubusercontent.com/ppy/veldrid/master/LICENSE' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.Veldrid.OpenGLBindings 4.9.69-ga405fe8484: license 'see https://raw.githubusercontent.com/ppy/veldrid/master/LICENSE' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.Veldrid.SPIRV 1.0.15-g5911265ec3: license 'see https://raw.githubusercontent.com/mellinoe/veldrid-spirv/master/LICENSE' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ ppy.Vk 1.0.26: license '(unknown)' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
-- ⚠ SQLite 3.53.4: license '(custom — see licence file in package)' is not on the permissive allow-list — verify manually (CONTRIBUTING.md §6)
+- ⚠⚠ FFmpeg.AutoGen 4.3.0.1: license 'LGPL (see licence file in package)': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver.Configurations 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver.Native 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver.Plugin 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
+- ⚠⚠ TagLibSharp 2.3.0: license 'LGPL-2.1-only': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
+- ⚠ HidSharpCore 1.3.0: license '(unknown)' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.managed-midi 1.10.2: license 'see https://github.com/atsushieno/managed-midi/LICENSE' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.osu.Game.Resources 2026.1008.0: license 'see https://github.com/ppy/osu-resources/blob/master/LICENCE.md' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.osuTK.NS20 1.0.211: license '(unknown)' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.SDL2-CS 1.0.741-alpha: license '(unknown)' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.Veldrid 4.9.69-ga405fe8484: license 'see https://raw.githubusercontent.com/ppy/veldrid/master/LICENSE' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.Veldrid.MetalBindings 4.9.69-ga405fe8484: license 'see https://raw.githubusercontent.com/ppy/veldrid/master/LICENSE' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.Veldrid.OpenGLBindings 4.9.69-ga405fe8484: license 'see https://raw.githubusercontent.com/ppy/veldrid/master/LICENSE' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.Veldrid.SPIRV 1.0.15-g5911265ec3: license 'see https://raw.githubusercontent.com/mellinoe/veldrid-spirv/master/LICENSE' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ ppy.Vk 1.0.26: license '(unknown)' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
+- ⚠ SQLite 3.53.4: license '(custom; see licence file in package)' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
 
 ## 5. Native / platform components
 
-- **SDL3** (Simple DirectMedia Layer) — Zlib licence — via osu!framework native libraries.
-- **BASS / BASSMIX / BASSFX** — see section 2 (un4seen commercial terms).
-- **FFmpeg** binaries (optional, user-provided) — LGPL/GPL components are loaded only if the user supplies them; kan! does not redistribute FFmpeg.
-- **DiscordRPC** (Discord Game SDK wrapper) — MIT wrapper; Discord SDK terms apply for Discord integration features.
+- **SDL3** (Simple DirectMedia Layer): Zlib licence, via osu!framework native libraries.
+- **BASS / BASSMIX / BASSFX**: see section 2 (un4seen commercial terms).
+- **FFmpeg** binaries (optional, user-provided): LGPL/GPL components are loaded only if the user supplies them; kan! does not redistribute FFmpeg.
+- **DiscordRPC** (Discord Game SDK wrapper): MIT wrapper; Discord SDK terms apply for Discord integration features.
 
 This notices file is generated, not exhaustive by legal opinion: if any entry looks wrong, fix the generator or the package reference and regenerate. Tracking issue surface: `game/docs/fork-divergence.md`.

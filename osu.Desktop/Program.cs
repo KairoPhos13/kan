@@ -6,7 +6,7 @@ using System.IO;
 using System.Runtime.Versioning;
 using osu.Desktop.Windows;
 // kan! rebrand (ADR-0011) / owner direction 2026-10-12: osu!stable legacy IPC
-// (osu.Desktop.LegacyIpc) removed — kan! has no osu!stable legacy and no stock
+// (osu.Desktop.LegacyIpc) removed: kan! has no osu!stable legacy and no stock
 // game modes (see game/docs/fork-divergence.md F-10).
 using osu.Framework;
 using osu.Framework.Development;

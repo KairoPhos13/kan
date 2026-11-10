@@ -501,7 +501,7 @@ namespace osu.Game.Rulesets
         /// <summary>
         /// kan! rebrand (ADR-0011) / fork F-11: an optional ruleset-provided
         /// screen for the editor's "tracks" tab (kan!forge level creation).
-        /// Return <see langword="null"/> when the ruleset has none — the tab
+        /// Return <see langword="null"/> when the ruleset has none; the tab
         /// is hidden in that case.
         /// </summary>
         public virtual osu.Game.Screens.Edit.EditorScreen? CreateTracksEditorScreen() => null;

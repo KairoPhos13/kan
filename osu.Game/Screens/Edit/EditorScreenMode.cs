@@ -12,8 +12,8 @@ namespace osu.Game.Screens.Edit
         SongSetup,
 
         // kan! rebrand (ADR-0011) / fork F-11: the ruleset-provided "track"
-        // editor screen (kan!forge level creation) — second tab, the first
-        // tool used when creating a level (owner 2026-10-13). The screen
+        // editor screen (kan!forge level creation), the second tab and the
+        // first tool used when creating a level (owner 2026-10-13). The screen
         // instance comes from Ruleset.CreateTracksEditorScreen().
         Tracks,
 
