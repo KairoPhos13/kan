@@ -119,6 +119,7 @@ namespace osu.Game.Screens.Select
         protected FilterControl FilterControl { get; private set; } = null!;
 
         private BeatmapTitleWedge titleWedge = null!;
+        private RulesetWedge rulesetWedge = null!;
         private BeatmapDetailsArea detailsArea = null!;
         private FillFlowContainer wedgesContainer = null!;
         private Box rightGradientBackground = null!;
@@ -242,6 +243,8 @@ namespace osu.Game.Screens.Select
                                                             {
                                                                 TopPadding = TopPadding,
                                                             }),
+                                                            // kan! fork (F-29): the ruleset's own wedge.
+                                                            new ShearAligningWrapper(rulesetWedge = new RulesetWedge(() => FilterControl.Refilter())),
                                                             new InputBlockingContainer
                                                             {
                                                                 RelativeSizeAxes = Axes.X,
@@ -408,7 +411,7 @@ namespace osu.Game.Screens.Select
         {
             base.Update();
 
-            detailsArea.Height = wedgesContainer.ChildSize.Y - titleWedge.LayoutSize.Y - 4;
+            detailsArea.Height = wedgesContainer.ChildSize.Y - titleWedge.LayoutSize.Y - rulesetWedge.LayoutSize.Y - 4;
 
             float widescreenBonusWidth = Math.Max(0, DrawWidth / DrawHeight - 2f);
 
@@ -835,12 +838,14 @@ namespace osu.Game.Screens.Select
             if (carousel.VisuallyFocusSelected)
             {
                 titleWedge.Hide();
+                rulesetWedge.Hide();
                 detailsArea.Hide();
                 FilterControl.Hide();
             }
             else
             {
                 titleWedge.Show();
+                rulesetWedge.Show();
                 detailsArea.Show();
                 FilterControl.Show();
             }

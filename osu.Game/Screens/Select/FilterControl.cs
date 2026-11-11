@@ -339,6 +339,12 @@ namespace osu.Game.Screens.Select
         }
 
         /// <summary>
+        /// kan! fork (F-29): filters again with the same controls, after a
+        /// ruleset setting the filter reads has changed.
+        /// </summary>
+        public void Refilter() => updateCriteria(clearScopedSet: false);
+
+        /// <summary>
         /// Set the query to the search text box.
         /// </summary>
         /// <param name="query">The string to search.</param>

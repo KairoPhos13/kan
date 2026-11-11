@@ -530,6 +530,14 @@ namespace osu.Game.Rulesets
             => Array.Empty<osu.Game.Screens.Play.PlayerSettings.PlayerSettingsGroup>();
 
         /// <summary>
+        /// kan! fork (F-29): the ruleset's own wedge in song select, under the
+        /// beatmap's title and difficulty, for what the player chooses while
+        /// picking a level (kan!: the instrument and its range).
+        /// <paramref name="refilter"/> asks song select to filter its list again.
+        /// </summary>
+        public virtual Drawable? CreateSongSelectWedgeContent(Action refilter) => null;
+
+        /// <summary>
         /// Can be overridden to avoid showing scroll speed changes in the editor.
         /// </summary>
         public virtual bool EditorShowScrollSpeed => true;
