@@ -27,6 +27,7 @@ using osu.Framework.Screens;
 using osu.Framework.Testing;
 using osu.Framework.Threading;
 using osu.Framework.Timing;
+using osu.Game.Online;
 using osu.Game.Audio;
 using osu.Game.Beatmaps;
 using osu.Game.Beatmaps.ControlPoints;
@@ -1365,8 +1366,11 @@ namespace osu.Game.Screens.Edit
                 yield return externalEdit;
             }
 
-            bool isSetMadeOfLegacyRulesetBeatmaps = (isNewBeatmap && Ruleset.Value.IsLegacyRuleset())
-                                                    || (!isNewBeatmap && Beatmap.Value.BeatmapSetInfo.Beatmaps.All(b => b.Ruleset.IsLegacyRuleset()));
+            // kan! fork (F-30): kan!'s server takes kan! levels, so the kan! ruleset submits too.
+            static bool submittable(RulesetInfo r) => r.IsLegacyRuleset() || r.ShortName == @"kan";
+
+            bool isSetMadeOfLegacyRulesetBeatmaps = (isNewBeatmap && submittable(Ruleset.Value))
+                                                    || (!isNewBeatmap && Beatmap.Value.BeatmapSetInfo.Beatmaps.All(b => submittable(b.Ruleset)));
             bool submissionAvailable = api.Endpoints.BeatmapSubmissionServiceUrl != null;
 
             if (isSetMadeOfLegacyRulesetBeatmaps && submissionAvailable)
@@ -1379,7 +1383,8 @@ namespace osu.Game.Screens.Edit
                 yield return upload;
             }
 
-            if (editorBeatmap.BeatmapInfo.OnlineID > 0)
+            // kan! fork (F-30): no level or discussion pages on kan!'s website yet.
+            if (editorBeatmap.BeatmapInfo.OnlineID > 0 && KanEndpointConfiguration.UsesOsuAssets)
             {
                 yield return new OsuMenuItemSpacer();
                 yield return new EditorMenuItem(EditorStrings.OpenInfoPage, MenuItemType.Standard,
@@ -1437,7 +1442,8 @@ namespace osu.Game.Screens.Edit
                 return;
             }
 
-            if (!editorBeatmap.HitObjects.Any())
+            // kan! fork (F-30): the ruleset says what an empty level is.
+            if (editorBeatmap.BeatmapInfo.Ruleset.CreateInstance().IsEmptyForSubmission(editorBeatmap))
             {
                 notifications?.Post(new SimpleNotification
                 {

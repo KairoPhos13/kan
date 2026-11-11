@@ -10,14 +10,14 @@ namespace osu.Game.Localisation
         private const string prefix = @"osu.Game.Resources.Localisation.BeatmapSubmission";
 
         /// <summary>
-        /// "Beatmap submission"
+        /// "Level submission"
         /// </summary>
-        public static LocalisableString BeatmapSubmissionTitle => new TranslatableString(getKey(@"beatmap_submission_title"), @"Beatmap submission");
+        public static LocalisableString BeatmapSubmissionTitle => new TranslatableString(getKey(@"beatmap_submission_title"), @"Level submission");
 
         /// <summary>
-        /// "Share your beatmap with the world!"
+        /// "Share your level with everyone who plays kan!"
         /// </summary>
-        public static LocalisableString BeatmapSubmissionDescription => new TranslatableString(getKey(@"beatmap_submission_description"), @"Share your beatmap with the world!");
+        public static LocalisableString BeatmapSubmissionDescription => new TranslatableString(getKey(@"beatmap_submission_description"), @"Share your level with everyone who plays kan!");
 
         /// <summary>
         /// "Content permissions"
@@ -40,14 +40,14 @@ namespace osu.Game.Localisation
         public static LocalisableString SubmissionSettings => new TranslatableString(getKey(@"submission_settings"), @"Submission settings");
 
         /// <summary>
-        /// "Submit beatmap!"
+        /// "Submit level!"
         /// </summary>
-        public static LocalisableString ConfirmSubmission => new TranslatableString(getKey(@"confirm_submission"), @"Submit beatmap!");
+        public static LocalisableString ConfirmSubmission => new TranslatableString(getKey(@"confirm_submission"), @"Submit level!");
 
         /// <summary>
-        /// "Exporting beatmap for compatibility..."
+        /// "Packing the level..."
         /// </summary>
-        public static LocalisableString Exporting => new TranslatableString(getKey(@"exporting"), @"Exporting beatmap for compatibility...");
+        public static LocalisableString Exporting => new TranslatableString(getKey(@"exporting"), @"Packing the level...");
 
         /// <summary>
         /// "Preparing for upload..."
@@ -55,9 +55,9 @@ namespace osu.Game.Localisation
         public static LocalisableString Preparing => new TranslatableString(getKey(@"preparing"), @"Preparing for upload...");
 
         /// <summary>
-        /// "Uploading beatmap contents..."
+        /// "Uploading the level..."
         /// </summary>
-        public static LocalisableString Uploading => new TranslatableString(getKey(@"uploading"), @"Uploading beatmap contents...");
+        public static LocalisableString Uploading => new TranslatableString(getKey(@"uploading"), @"Uploading the level...");
 
         /// <summary>
         /// "Finishing up..."
@@ -65,44 +65,44 @@ namespace osu.Game.Localisation
         public static LocalisableString Finishing => new TranslatableString(getKey(@"finishing"), @"Finishing up...");
 
         /// <summary>
-        /// "Before you continue, we ask you to check whether the content you are uploading has been cleared for upload. Please understand that you are responsible for the content you upload to the platform and if in doubt, should ask permission from the creators before uploading!"
+        /// "Before you continue, check that you may share everything in your level: the music (the composition) and every audio file in it. Public domain, CC0, CC BY and CC BY-SA are fine; music under copyright needs its creators' permission. You are responsible for what you upload. Levels that break this rule are removed."
         /// </summary>
-        public static LocalisableString ContentPermissionsDisclaimer => new TranslatableString(getKey(@"content_permissions_disclaimer"), @"Before you continue, we ask you to check whether the content you are uploading has been cleared for upload. Please understand that you are responsible for the content you upload to the platform and if in doubt, should ask permission from the creators before uploading!");
+        public static LocalisableString ContentPermissionsDisclaimer => new TranslatableString(getKey(@"content_permissions_disclaimer"), @"Before you continue, check that you may share everything in your level: the music (the composition) and every audio file in it. Public domain, CC0, CC BY and CC BY-SA are fine; music under copyright needs its creators' permission. You are responsible for what you upload. Levels that break this rule are removed.");
 
         /// <summary>
-        /// "Check the content usage guidelines for more information"
+        /// "What you may use (level creator's handbook)"
         /// </summary>
-        public static LocalisableString CheckContentUsageGuidelines => new TranslatableString(getKey(@"check_content_usage_guidelines"), @"Check the content usage guidelines for more information");
+        public static LocalisableString CheckContentUsageGuidelines => new TranslatableString(getKey(@"check_content_usage_guidelines"), @"What you may use (level creator's handbook)");
 
         /// <summary>
-        /// "Beatmap ranking criteria"
+        /// "Level creator's handbook"
         /// </summary>
-        public static LocalisableString BeatmapRankingCriteria => new TranslatableString(getKey(@"beatmap_ranking_criteria"), @"Beatmap ranking criteria");
+        public static LocalisableString BeatmapRankingCriteria => new TranslatableString(getKey(@"beatmap_ranking_criteria"), @"Level creator's handbook");
 
         /// <summary>
-        /// "Not sure you meet the guidelines? Check the list and speed up the ranking process!"
+        /// "How to make a level that plays well, from the song to the verify checklist."
         /// </summary>
-        public static LocalisableString BeatmapRankingCriteriaDescription => new TranslatableString(getKey(@"beatmap_ranking_criteria_description"), @"Not sure you meet the guidelines? Check the list and speed up the ranking process!");
+        public static LocalisableString BeatmapRankingCriteriaDescription => new TranslatableString(getKey(@"beatmap_ranking_criteria_description"), @"How to make a level that plays well, from the song to the verify checklist.");
 
         /// <summary>
-        /// "Submission process"
+        /// "How levels are published"
         /// </summary>
-        public static LocalisableString SubmissionProcess => new TranslatableString(getKey(@"submission_process"), @"Submission process");
+        public static LocalisableString SubmissionProcess => new TranslatableString(getKey(@"submission_process"), @"How levels are published");
 
         /// <summary>
-        /// "Unsure about the submission process? Check out the wiki entry!"
+        /// "From work in progress to pending to ranked: what each step means."
         /// </summary>
-        public static LocalisableString SubmissionProcessDescription => new TranslatableString(getKey(@"submission_process_description"), @"Unsure about the submission process? Check out the wiki entry!");
+        public static LocalisableString SubmissionProcessDescription => new TranslatableString(getKey(@"submission_process_description"), @"From work in progress to pending to ranked: what each step means.");
 
         /// <summary>
-        /// "Mapping help forum"
+        /// "Ask for help"
         /// </summary>
-        public static LocalisableString MappingHelpForum => new TranslatableString(getKey(@"mapping_help_forum"), @"Mapping help forum");
+        public static LocalisableString MappingHelpForum => new TranslatableString(getKey(@"mapping_help_forum"), @"Ask for help");
 
         /// <summary>
-        /// "Got some questions about mapping and submission? Ask them in the forums!"
+        /// "Questions or problems? Ask on kan!'s issue tracker."
         /// </summary>
-        public static LocalisableString MappingHelpForumDescription => new TranslatableString(getKey(@"mapping_help_forum_description"), @"Got some questions about mapping and submission? Ask them in the forums!");
+        public static LocalisableString MappingHelpForumDescription => new TranslatableString(getKey(@"mapping_help_forum_description"), @"Questions or problems? Ask on kan!'s issue tracker.");
 
         /// <summary>
         /// "Modding queues forum"
@@ -115,19 +115,19 @@ namespace osu.Game.Localisation
         public static LocalisableString ModdingQueuesForumDescription => new TranslatableString(getKey(@"modding_queues_forum_description"), @"Having trouble getting feedback? Why not ask in a mod queue!");
 
         /// <summary>
-        /// "Where would you like to post your beatmap?"
+        /// "Where would you like to post your level?"
         /// </summary>
-        public static LocalisableString BeatmapSubmissionTargetCaption => new TranslatableString(getKey(@"beatmap_submission_target_caption"), @"Where would you like to post your beatmap?");
+        public static LocalisableString BeatmapSubmissionTargetCaption => new TranslatableString(getKey(@"beatmap_submission_target_caption"), @"Where would you like to post your level?");
 
         /// <summary>
-        /// "Works in Progress / Help (incomplete, not ready for ranking)"
+        /// "Work in progress (not finished; others can try it)"
         /// </summary>
-        public static LocalisableString BeatmapSubmissionTargetWIP => new TranslatableString(getKey(@"beatmap_submission_target_wip"), @"Works in Progress / Help (incomplete, not ready for ranking)");
+        public static LocalisableString BeatmapSubmissionTargetWIP => new TranslatableString(getKey(@"beatmap_submission_target_wip"), @"Work in progress (not finished; others can try it)");
 
         /// <summary>
-        /// "Pending (complete, ready for ranking)"
+        /// "Pending (finished, ready to be reviewed for ranking)"
         /// </summary>
-        public static LocalisableString BeatmapSubmissionTargetPending => new TranslatableString(getKey(@"beatmap_submission_target_pending"), @"Pending (complete, ready for ranking)");
+        public static LocalisableString BeatmapSubmissionTargetPending => new TranslatableString(getKey(@"beatmap_submission_target_pending"), @"Pending (finished, ready to be reviewed for ranking)");
 
         /// <summary>
         /// "Receive notifications for discussion replies"
@@ -140,24 +140,24 @@ namespace osu.Game.Localisation
         public static LocalisableString LoadInBrowserAfterSubmission => new TranslatableString(getKey(@"load_in_browser_after_submission"), @"Load in browser after submission");
 
         /// <summary>
-        /// "Note: In order to make it possible for users of all osu! versions to enjoy your beatmap, it will be exported in a backwards-compatible format. While we have made efforts to ensure that this process keeps the beatmap playable in its intended form, some data related to features that previous versions of osu! do not support may be lost."
+        /// "Your level is packed as an .osz, the format kan! shares levels in. Everything the level needs travels with it."
         /// </summary>
-        public static LocalisableString LegacyExportDisclaimer => new TranslatableString(getKey(@"legacy_export_disclaimer"), @"Note: In order to make it possible for users of all osu! versions to enjoy your beatmap, it will be exported in a backwards-compatible format. While we have made efforts to ensure that this process keeps the beatmap playable in its intended form, some data related to features that previous versions of osu! do not support may be lost.");
+        public static LocalisableString LegacyExportDisclaimer => new TranslatableString(getKey(@"legacy_export_disclaimer"), @"Your level is packed as an .osz, the format kan! shares levels in. Everything the level needs travels with it.");
 
         /// <summary>
-        /// "Empty beatmaps cannot be submitted."
+        /// "Empty levels cannot be submitted."
         /// </summary>
-        public static LocalisableString EmptyBeatmapsCannotBeSubmitted => new TranslatableString(getKey(@"empty_beatmaps_cannot_be_submitted"), @"Empty beatmaps cannot be submitted.");
+        public static LocalisableString EmptyBeatmapsCannotBeSubmitted => new TranslatableString(getKey(@"empty_beatmaps_cannot_be_submitted"), @"Empty levels cannot be submitted.");
 
         /// <summary>
-        /// "Update beatmap!"
+        /// "Update level!"
         /// </summary>
-        public static LocalisableString UpdateBeatmap => new TranslatableString(getKey(@"update_beatmap"), @"Update beatmap!");
+        public static LocalisableString UpdateBeatmap => new TranslatableString(getKey(@"update_beatmap"), @"Update level!");
 
         /// <summary>
-        /// "Upload NEW beatmap!"
+        /// "Upload as a NEW level!"
         /// </summary>
-        public static LocalisableString UploadNewBeatmap => new TranslatableString(getKey(@"upload_new_beatmap"), @"Upload NEW beatmap!");
+        public static LocalisableString UploadNewBeatmap => new TranslatableString(getKey(@"upload_new_beatmap"), @"Upload as a NEW level!");
 
         private static string getKey(string key) => $@"{prefix}:{key}";
     }

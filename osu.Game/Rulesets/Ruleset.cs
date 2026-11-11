@@ -538,6 +538,13 @@ namespace osu.Game.Rulesets
         public virtual Drawable? CreateSongSelectWedgeContent(Action refilter) => null;
 
         /// <summary>
+        /// kan! fork (F-30): whether a beatmap has nothing to play, for the
+        /// editor's submission check. A ruleset whose notes live outside the
+        /// hit objects (kan!: the level's score) answers here.
+        /// </summary>
+        public virtual bool IsEmptyForSubmission(IBeatmap beatmap) => !beatmap.HitObjects.Any();
+
+        /// <summary>
         /// Can be overridden to avoid showing scroll speed changes in the editor.
         /// </summary>
         public virtual bool EditorShowScrollSpeed => true;

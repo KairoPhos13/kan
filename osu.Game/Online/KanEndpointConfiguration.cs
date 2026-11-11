@@ -41,6 +41,12 @@ namespace osu.Game.Online
         /// </summary>
         public static bool UsesOsuAssets => false;
 
+        /// <summary>The level creator's handbook (fork F-30: the submission screens link to it).</summary>
+        public const string HANDBOOK_URL = @"https://github.com/KairoPhos13/kan-rhythm/blob/main/game/docs/level-creation-guide.md";
+
+        /// <summary>Where players and creators ask questions and report problems.</summary>
+        public const string ISSUES_URL = @"https://github.com/KairoPhos13/kan-rhythm/issues";
+
         /// <summary>Whether an online image or audio file may be fetched from this address (only kan!'s server).</summary>
         public static bool IsTrustedHost(Uri uri)
         {
@@ -61,7 +67,8 @@ namespace osu.Game.Online
             SpectatorUrl = string.Empty;
             MultiplayerUrl = string.Empty;
             MetadataUrl = string.Empty;
-            BeatmapSubmissionServiceUrl = null;
+            // kan! fork (F-30): level submission on kan!'s own server (server/docs/lazer-protocol.md).
+            BeatmapSubmissionServiceUrl = HasServer ? $@"{APIUrl}/beatmap-submission" : null;
         }
     }
 }

@@ -4,6 +4,7 @@
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Localisation;
+using osu.Game.Online;
 using osu.Game.Graphics;
 using osu.Game.Graphics.Containers;
 using osu.Game.Graphics.UserInterfaceV2;
@@ -34,7 +35,8 @@ namespace osu.Game.Screens.Edit.Submission
                     Origin = Anchor.TopCentre,
                     Width = 450,
                     Text = BeatmapSubmissionStrings.CheckContentUsageGuidelines,
-                    Action = () => game?.ShowWiki(@"Rules/Content_usage_permissions"),
+                    // kan! fork (F-30): kan!'s rule on what may be shared, in the level creator's handbook.
+                    Action = () => game?.OpenUrlExternally(KanEndpointConfiguration.HANDBOOK_URL + @"#what-you-may-use"),
                 },
             });
         }

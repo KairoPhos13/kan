@@ -91,9 +91,9 @@ namespace osu.Game.Localisation
         public static LocalisableString EditExternally => new TranslatableString(getKey(@"edit_externally"), @"Edit externally...");
 
         /// <summary>
-        /// "Submit beatmap..."
+        /// "Submit level..."
         /// </summary>
-        public static LocalisableString SubmitBeatmap => new TranslatableString(getKey(@"submit_beatmap"), @"Submit beatmap...");
+        public static LocalisableString SubmitBeatmap => new TranslatableString(getKey(@"submit_beatmap"), @"Submit level...");
 
         /// <summary>
         /// "setup"

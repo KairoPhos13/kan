@@ -5,6 +5,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Localisation;
+using osu.Game.Online;
 using osu.Game.Graphics.UserInterfaceV2;
 using osu.Game.Localisation;
 using osu.Game.Online.API;
@@ -25,6 +26,7 @@ namespace osu.Game.Screens.Edit.Submission
                 AutoSizeAxes = Axes.Y,
                 Direction = FillDirection.Vertical,
                 Spacing = new Vector2(5),
+                // kan! fork (F-30): kan!'s own help, not osu!'s wiki and forums.
                 Children = new Drawable[]
                 {
                     new FormButton
@@ -32,28 +34,21 @@ namespace osu.Game.Screens.Edit.Submission
                         RelativeSizeAxes = Axes.X,
                         Caption = BeatmapSubmissionStrings.BeatmapRankingCriteriaDescription,
                         ButtonText = BeatmapSubmissionStrings.BeatmapRankingCriteria,
-                        Action = () => game?.ShowWiki(@"Ranking_Criteria"),
+                        Action = () => game?.OpenUrlExternally(KanEndpointConfiguration.HANDBOOK_URL),
                     },
                     new FormButton
                     {
                         RelativeSizeAxes = Axes.X,
                         Caption = BeatmapSubmissionStrings.SubmissionProcessDescription,
                         ButtonText = BeatmapSubmissionStrings.SubmissionProcess,
-                        Action = () => game?.ShowWiki(@"Beatmap_ranking_procedure"),
+                        Action = () => game?.OpenUrlExternally(KanEndpointConfiguration.HANDBOOK_URL + @"#sharing"),
                     },
                     new FormButton
                     {
                         RelativeSizeAxes = Axes.X,
                         Caption = BeatmapSubmissionStrings.MappingHelpForumDescription,
                         ButtonText = BeatmapSubmissionStrings.MappingHelpForum,
-                        Action = () => game?.OpenUrlExternally($@"{api.Endpoints.WebsiteUrl}/community/forums/56"),
-                    },
-                    new FormButton
-                    {
-                        RelativeSizeAxes = Axes.X,
-                        Caption = BeatmapSubmissionStrings.ModdingQueuesForumDescription,
-                        ButtonText = BeatmapSubmissionStrings.ModdingQueuesForum,
-                        Action = () => game?.OpenUrlExternally($@"{api.Endpoints.WebsiteUrl}/community/forums/60"),
+                        Action = () => game?.OpenUrlExternally(KanEndpointConfiguration.ISSUES_URL),
                     },
                 },
             });

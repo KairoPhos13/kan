@@ -7,6 +7,7 @@ using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Localisation;
+using osu.Game.Online;
 using osu.Game.Beatmaps;
 using osu.Game.Configuration;
 using osu.Game.Graphics;
@@ -48,15 +49,18 @@ namespace osu.Game.Screens.Edit.Submission
                         Caption = BeatmapSubmissionStrings.BeatmapSubmissionTargetCaption,
                         Current = settings.Target,
                     },
+                    // kan! fork (F-30): no discussions or level pages on kan!'s website yet.
                     new FormCheckBox
                     {
                         Caption = BeatmapSubmissionStrings.NotifyOnDiscussionReplies,
                         Current = settings.NotifyOnDiscussionReplies,
+                        Alpha = KanEndpointConfiguration.UsesOsuAssets ? 1 : 0,
                     },
                     new FormCheckBox
                     {
                         Caption = BeatmapSubmissionStrings.LoadInBrowserAfterSubmission,
                         Current = loadInBrowserAfterSubmission,
+                        Alpha = KanEndpointConfiguration.UsesOsuAssets ? 1 : 0,
                     },
                     new OsuTextFlowContainer(cp => cp.Font = OsuFont.Default.With(size: CONTENT_FONT_SIZE, weight: FontWeight.Bold))
                     {

@@ -18,6 +18,7 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Logging;
 using osu.Framework.Platform;
 using osu.Framework.Screens;
+using osu.Game.Online;
 using osu.Game.Beatmaps;
 using osu.Game.Beatmaps.Drawables.Cards;
 using osu.Game.Configuration;
@@ -409,7 +410,8 @@ namespace osu.Game.Screens.Edit.Submission
             showBeatmapCard();
             allowExit();
 
-            if (configManager.Get<bool>(OsuSetting.EditorSubmissionLoadInBrowserAfterSubmission))
+            // kan! fork (F-30): no level pages on kan!'s website yet.
+            if (KanEndpointConfiguration.UsesOsuAssets && configManager.Get<bool>(OsuSetting.EditorSubmissionLoadInBrowserAfterSubmission))
             {
                 await Task.Delay(1000).ConfigureAwait(true);
                 game?.OpenUrlExternally($"{api.Endpoints.WebsiteUrl}/beatmapsets/{beatmapSetId}");
