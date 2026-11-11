@@ -1,6 +1,6 @@
 # THIRD PARTY NOTICES: kan! client
 
-Generated 2026-10-12 by `game/tools/gen-third-party-notices.py` (monorepo kan-rhythm). Do not edit by hand: regenerate instead.
+Generated 2026-11-11 by `game/tools/gen-third-party-notices.py` (monorepo kan-rhythm). Do not edit by hand: regenerate instead.
 
 The kan! client is built on the osu!lazer fork (github.com/KairoPhos13/kan, itself a fork of `ppy/osu`). This file lists every redistributed third-party component and its licence, and is shown on the in-game about screen. Licence *texts* of individual packages ship inside the corresponding NuGet package (`~/.nuget/packages/<id>/<version>/`); extract any of them with:
 
@@ -10,7 +10,8 @@ The kan! client is built on the osu!lazer fork (github.com/KairoPhos13/kan, itse
 
 - **osu!lazer** (`ppy/osu`): MIT Licence, Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors. kan! is a rebranded fork (ADR-0011); upstream copyright headers are preserved in every adapted file.
 - **osu!framework** (`ppy/osu-framework`): MIT Licence, Copyright (c) ppy Pty Ltd <contact@ppy.sh> and contributors.
-- **osu! Game Resources** (`ppy.osu.Game.Resources`, © ppy Pty Ltd): CC BY-NC 4.0 for most content, fonts under their own licences (https://github.com/ppy/osu-resources). Used non-commercially; kan!'s own art and sounds replace them as they are made (`brand/`). The osu! name and logo are ppy's trademarks.
+- **osu! Game Resources** (`ppy.osu.Game.Resources`, © ppy Pty Ltd): CC BY-NC 4.0 for most content (https://github.com/ppy/osu-resources). Used non-commercially; kan!'s own art and sounds replace them as they are made (`brand/`). The osu! name and logo are ppy's trademarks.
+- **Fonts** in the osu! resources, each under its own licence: Inter and Noto (SIL Open Font License); Torus, Torus-Alternate and Venera (their upstream licence files state that distribution requires a commercial licence).
 
 Full text of the base project's licence (fork `LICENCE`):
 
@@ -38,7 +39,7 @@ THE SOFTWARE.
 
 ## 2. BASS audio library (un4seen): special terms
 
-osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** (© 1999-2026 Un4seen Developments). BASS is **not** open source: it is free for non-commercial use and requires a commercial licence otherwise. kan!'s status (donation-funded) is analysed in `game/docs/bass-licensing.md`; the outcome of that analysis must be resolved before any donation-driven release (ADR-0010 §5). See https://www.un4seen.com/ for the authoritative terms.
+osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** and, on Windows, **BASSWASAPI** (© 1999-2026 Un4seen Developments). BASS is **not** open source: it is free for non-commercial use and requires a commercial licence otherwise. kan!'s status (donation-funded) is analysed in `game/docs/bass-licensing.md`; the outcome of that analysis must be resolved before any donation-driven release (ADR-0010 §5). See https://www.un4seen.com/ for the authoritative terms.
 
 ## 3. NuGet package closure (osu.Desktop)
 
@@ -108,31 +109,31 @@ osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** (© 1999-2026 Un4
 | `Humanizer.Core.zh-Hant` | 3.0.10 | MIT | https://github.com/Humanizr/Humanizer |
 | `JetBrains.Annotations` | 2026.2.0 | MIT | https://www.jetbrains.com/help/resharper/Code_Analysis__Code_Annotations.html |
 | `Markdig` | 0.23.0 | BSD-2-Clause | https://github.com/lunet-io/markdig |
-| `MessagePack` | 3.1.8 | MIT | https://github.com/MessagePack-CSharp/MessagePack-CSharp |
-| `MessagePack.Annotations` | 3.1.8 | MIT | https://github.com/MessagePack-CSharp/MessagePack-CSharp |
-| `MessagePackAnalyzer` | 3.1.8 | MIT | https://github.com/MessagePack-CSharp/MessagePack-CSharp |
-| `Microsoft.AspNetCore.Connections.Abstractions` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.Http.Connections.Client` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.Http.Connections.Common` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.SignalR.Client` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.SignalR.Client.Core` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.SignalR.Common` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.SignalR.Protocols.Json` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.SignalR.Protocols.MessagePack` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson` | 10.0.12 | MIT | https://asp.net/ |
+| `MessagePack` | 3.1.12 | MIT | https://github.com/MessagePack-CSharp/MessagePack-CSharp |
+| `MessagePack.Annotations` | 3.1.12 | MIT | https://github.com/MessagePack-CSharp/MessagePack-CSharp |
+| `MessagePackAnalyzer` | 3.1.12 | MIT | https://github.com/MessagePack-CSharp/MessagePack-CSharp |
+| `Microsoft.AspNetCore.Connections.Abstractions` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.Http.Connections.Client` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.Http.Connections.Common` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.SignalR.Client` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.SignalR.Client.Core` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.SignalR.Common` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.SignalR.Protocols.Json` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.SignalR.Protocols.MessagePack` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson` | 10.0.13 | MIT | https://asp.net/ |
 | `Microsoft.CodeAnalysis.BannedApiAnalyzers` | 3.3.4 | MIT | https://github.com/dotnet/roslyn-analyzers |
 | `Microsoft.Data.Sqlite.Core` | 10.0.12 | MIT | https://docs.microsoft.com/dotnet/standard/data/sqlite/ |
 | `Microsoft.Diagnostics.NETCore.Client` | 0.2.61701 | MIT | https://github.com/dotnet/diagnostics |
 | `Microsoft.Diagnostics.Runtime` | 2.0.161401 | MIT | https://github.com/Microsoft/clrmd |
 | `Microsoft.Extensions.Configuration.Abstractions` | 10.0.12 | MIT | https://dot.net/ |
-| `Microsoft.Extensions.DependencyInjection` | 10.0.12 | MIT | https://dot.net/ |
-| `Microsoft.Extensions.DependencyInjection.Abstractions` | 10.0.12 | MIT | https://dot.net/ |
-| `Microsoft.Extensions.Features` | 10.0.12 | MIT | https://asp.net/ |
-| `Microsoft.Extensions.Logging` | 10.0.12 | MIT | https://dot.net/ |
-| `Microsoft.Extensions.Logging.Abstractions` | 10.0.12 | MIT | https://dot.net/ |
+| `Microsoft.Extensions.DependencyInjection` | 10.0.13 | MIT | https://dot.net/ |
+| `Microsoft.Extensions.DependencyInjection.Abstractions` | 10.0.13 | MIT | https://dot.net/ |
+| `Microsoft.Extensions.Features` | 10.0.13 | MIT | https://asp.net/ |
+| `Microsoft.Extensions.Logging` | 10.0.13 | MIT | https://dot.net/ |
+| `Microsoft.Extensions.Logging.Abstractions` | 10.0.13 | MIT | https://dot.net/ |
 | `Microsoft.Extensions.ObjectPool` | 10.0.11 | MIT | https://asp.net/ |
-| `Microsoft.Extensions.Options` | 10.0.12 | MIT | https://dot.net/ |
-| `Microsoft.Extensions.Primitives` | 10.0.12 | MIT | https://dot.net/ |
+| `Microsoft.Extensions.Options` | 10.0.13 | MIT | https://dot.net/ |
+| `Microsoft.Extensions.Primitives` | 10.0.13 | MIT | https://dot.net/ |
 | `Microsoft.NET.StringTools` | 17.11.4 | MIT | http://go.microsoft.com/fwlink/?LinkId=624683 |
 | `Microsoft.NETCore.Platforms` | 1.1.0 | Microsoft .NET library licence (see licenceUrl) | https://dot.net/ |
 | `Microsoft.Toolkit.HighPerformance` | 7.1.2 | MIT | https://github.com/CommunityToolkit/WindowsCommunityToolkit |
@@ -189,12 +190,12 @@ osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** (© 1999-2026 Un4
 
 ## 4. Warnings from the generator
 
-- ⚠⚠ FFmpeg.AutoGen 4.3.0.1: license 'LGPL (see licence file in package)': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver.Configurations 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver.Native 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ OpenTabletDriver.Plugin 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
-- ⚠⚠ TagLibSharp 2.3.0: license 'LGPL-2.1-only': GPL-family licence inherited from upstream osu!lazer. Dynamic-linking redistribution only; must be documented and reviewed before any release (CONTRIBUTING.md §6).
+- ⚠⚠ FFmpeg.AutoGen 4.3.0.1: license 'LGPL (see licence file in package)': GPL-family licence inherited from upstream osu!lazer. Kept as separate assemblies/libraries with dynamic linking (ADR-0013); re-review before any paid release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Kept as separate assemblies/libraries with dynamic linking (ADR-0013); re-review before any paid release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver.Configurations 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Kept as separate assemblies/libraries with dynamic linking (ADR-0013); re-review before any paid release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver.Native 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Kept as separate assemblies/libraries with dynamic linking (ADR-0013); re-review before any paid release (CONTRIBUTING.md §6).
+- ⚠⚠ OpenTabletDriver.Plugin 0.6.7: license 'LGPL-3.0-or-later': GPL-family licence inherited from upstream osu!lazer. Kept as separate assemblies/libraries with dynamic linking (ADR-0013); re-review before any paid release (CONTRIBUTING.md §6).
+- ⚠⚠ TagLibSharp 2.3.0: license 'LGPL-2.1-only': GPL-family licence inherited from upstream osu!lazer. Kept as separate assemblies/libraries with dynamic linking (ADR-0013); re-review before any paid release (CONTRIBUTING.md §6).
 - ⚠ HidSharpCore 1.3.0: license '(unknown)' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
 - ⚠ ppy.managed-midi 1.10.2: license 'see https://github.com/atsushieno/managed-midi/LICENSE' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
 - ⚠ ppy.osu.Game.Resources 2026.1008.0: license 'see https://github.com/ppy/osu-resources/blob/master/LICENCE.md' is not on the permissive allow-list: verify manually (CONTRIBUTING.md §6)
@@ -209,9 +210,24 @@ osu!framework's audio backend uses **BASS / BASSMIX / BASSFX** (© 1999-2026 Un4
 
 ## 5. Native / platform components
 
-- **SDL3** (Simple DirectMedia Layer): Zlib licence, via osu!framework native libraries.
-- **BASS / BASSMIX / BASSFX**: see section 2 (un4seen commercial terms).
-- **FFmpeg** binaries (optional, user-provided): LGPL/GPL components are loaded only if the user supplies them; kan! does not redistribute FFmpeg.
-- **DiscordRPC** (Discord Game SDK wrapper): MIT wrapper; Discord SDK terms apply for Discord integration features.
+Shipped as native binaries next to the executable; section 3 lists the managed wrapper packages, and each package carries its own licence text.
+
+- **FFmpeg 4.x** (`libavcodec` 58, `libavformat` 58, `libavutil` 56, `libswscale` 5): redistributed in every kan! zip via `ppy.osu.Framework.NativeLibs` (osu!framework's native libraries). Licence: **LGPL 2.1 or later** (build-dependent). The binaries stay separate libraries that are loaded dynamically, and their licence terms travel with them; ADR-0013 of the kan-rhythm monorepo records the inherited LGPL set.
+- **SDL2 and SDL3** (Simple DirectMedia Layer): Zlib licence, via `ppy.SDL2-CS` and `ppy.SDL3-CS`.
+- **libveldrid-spirv** (SPIRV-Cross): MIT licence, via `ppy.Veldrid.SPIRV`.
+- **libstbi** (stb image decoding): public domain / MIT, via `StbiSharp`.
+- **librealm-wrappers** (Realm database core): Apache-2.0, via `Realm`.
+- **e_sqlite3** (SQLite): public domain, via `SQLite` and `SQLitePCLRaw`.
+- **BASS / BASSMIX / BASSFX / BASSWASAPI**: see section 2 (un4seen commercial terms).
+- **DiscordRPC** (`DiscordRichPresence`, MIT): a Discord RPC wrapper. kan! keeps Discord presence **off** (fork F-20), so no Discord integration is active.
+- **kan!'s native bridge** (`kan_forge_native`): miniaudio (MIT-0), the Basic Pitch C++ port and its ICASSP 2022 weights (Apache-2.0, Copyright 2022 Spotify AB), GGML (MIT) and BSRoformer.cpp (MIT). Record of record with versions and changes: `libkan/THIRD_PARTY_NOTICES.md` in the kan-rhythm monorepo.
+
+## 6. Separation model (downloaded at first use)
+
+Splitting a song into its parts downloads one BS-RoFormer 6-stem separation model (about 200 MB) to `models/` on first use; the model is not shipped in the zip.
+
+- **Default: the f16 grade of `studio409/BSRoformer-SW-6Stem-GGUF`** (Hugging Face), a GGUF conversion of `elicwhite/bs-roformer-sw-6stem-onnx`: **MIT licence**.
+- **Opt-in: the q8 grade of `FractalSurfer/BS-RoFormer-SW-6stem`** (only with `KAN_ROFORMER_GRADE=q8`): its model card declares **no licence**, so kan! never selects it on its own.
+- `KAN_MODEL_URL` downloads from an own host instead; `KAN_ROFORMER_GGUF` points at a local file (no download).
 
 This notices file is generated, not exhaustive by legal opinion: if any entry looks wrong, fix the generator or the package reference and regenerate. Tracking issue surface: `game/docs/fork-divergence.md`.
