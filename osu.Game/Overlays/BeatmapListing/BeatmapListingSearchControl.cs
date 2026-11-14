@@ -146,7 +146,9 @@ namespace osu.Game.Overlays.BeatmapListing
             });
 
             generalFilter.Current.Add(SearchGeneral.FeaturedArtists);
-            categoryFilter.Current.Value = SearchCategory.Leaderboard;
+            // kan! (fork F-32, owner 2026-11-14): the listing opens on every level, newest first;
+            // "Has Leaderboard" and "Ranked" stay one click away.
+            categoryFilter.Current.Value = SearchCategory.Any;
         }
 
         private IBindable<bool> allowExplicitContent = null!;

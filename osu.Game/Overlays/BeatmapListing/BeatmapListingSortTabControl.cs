@@ -22,7 +22,7 @@ namespace osu.Game.Overlays.BeatmapListing
             base.LoadComplete();
 
             if (currentParameters == null)
-                Reset(SearchCategory.Leaderboard, false);
+                Reset(SearchCategory.Any, false); // kan! (F-32)
 
             Current.BindValueChanged(_ => SortDirection.Value = Overlays.SortDirection.Descending);
         }
@@ -56,7 +56,8 @@ namespace osu.Game.Overlays.BeatmapListing
                     TabControl.AddItem(SortCriteria.Nominations);
             }
 
-            var nonQueryCriteria = category >= SearchCategory.Pending ? SortCriteria.Updated : SortCriteria.Ranked;
+            // kan! (F-32): "Any" holds unranked levels too, so it sorts by last update.
+            var nonQueryCriteria = category >= SearchCategory.Pending || category == SearchCategory.Any ? SortCriteria.Updated : SortCriteria.Ranked;
 
             Current.Value = hasQuery ? SortCriteria.Relevance : nonQueryCriteria;
             SortDirection.Value = Overlays.SortDirection.Descending;
