@@ -460,7 +460,10 @@ namespace osu.Game.Overlays
             realm.Realm.All<BeatmapSetInfo>().Where(s => !s.DeletePending)
                  .AsEnumerable()
                  .Select(s => new RealmLive<BeatmapSetInfo>(s, realm))
-                 .Where(i => (allowProtectedTracks || !i.Value.Protected)
+                 // kan! rebrand (ADR-0011, fork F-22): protected sets are osu!'s own intro
+                 // tracks (an install from before F-22 still holds them); the music player
+                 // never reaches them, whatever allowProtectedTracks asks (QA 2026-11-14).
+                 .Where(i => !i.Value.Protected
                              && (SeasonalUIConfig.ENABLED || i.Value.Hash != IntroChristmas.CHRISTMAS_BEATMAP_SET_HASH));
 
         private void changeBeatmap(WorkingBeatmap newWorking)
