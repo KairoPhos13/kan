@@ -1466,12 +1466,9 @@ namespace osu.Game
 
             if (generalLogRecentCount < short_term_display_limit)
             {
-                LocalisableString message;
-
-                if (entry.Exception != null && IsDeployedBuild)
-                    message = LocalisableString.Interpolate($"{entry.Message.Truncate(256)}\n\n{NotificationsStrings.ErrorAutomaticallyReported}");
-                else
-                    message = entry.Message.Truncate(256);
+                // kan! rebrand (ADR-0011), fork F-33: kan! reports no errors anywhere (no Sentry),
+                // so the message never says it was reported.
+                LocalisableString message = entry.Message.Truncate(256);
 
                 Schedule(() => Notifications.Post(new SimpleErrorNotification
                 {

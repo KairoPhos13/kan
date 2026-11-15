@@ -119,7 +119,9 @@ namespace osu.Game
         /// </summary>
         public string VersionHash { get; private set; }
 
-        public bool IsDeployedBuild => AssemblyVersion.Major > 0;
+        // kan! rebrand (ADR-0011), fork F-33: kan!'s releases are numbered from 0 (0.1.2), so a
+        // released build is any build with a version; a local build is 0.0.0.
+        public bool IsDeployedBuild => AssemblyVersion.Major > 0 || AssemblyVersion.Minor > 0 || AssemblyVersion.Build > 0;
 
         public virtual string Version
         {

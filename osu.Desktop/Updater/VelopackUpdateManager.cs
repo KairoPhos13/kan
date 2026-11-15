@@ -57,11 +57,22 @@ namespace osu.Desktop.Updater
             {
                 // kan! rebrand (ADR-0011), fork F-20/F-24: kan!'s own releases (published by the
                 // kan-rhythm repository's CI); osu!'s would install osu!lazer over kan!.
-                IUpdateSource updateSource = new GithubSource(@"https://github.com/KairoPhos13/kan-rhythm", null, ReleaseStream.Value == Game.Configuration.ReleaseStream.Tachyon);
+                // KAN_UPDATE_SOURCE (a folder of vpk output) stands in for GitHub when testing an update offline.
+                string? localSource = Environment.GetEnvironmentVariable(@"KAN_UPDATE_SOURCE");
+                IUpdateSource updateSource = !string.IsNullOrEmpty(localSource)
+                    ? new SimpleFileSource(new System.IO.DirectoryInfo(localSource))
+                    : new GithubSource(@"https://github.com/KairoPhos13/kan-rhythm", null, ReleaseStream.Value == Game.Configuration.ReleaseStream.Tachyon);
                 Velopack.UpdateManager updateManager = new Velopack.UpdateManager(updateSource, new UpdateOptions
                 {
                     AllowVersionDowngrade = true
                 });
+
+                // kan! (fork F-33): a game unpacked from a plain zip has nothing to update; it says so once.
+                if (!updateManager.IsInstalled)
+                {
+                    log("Not installed from an update package; updates are manual");
+                    return false;
+                }
 
                 UpdateInfo? update = await updateManager.CheckForUpdatesAsync().ConfigureAwait(false);
 

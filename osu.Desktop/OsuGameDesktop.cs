@@ -128,6 +128,17 @@ namespace osu.Desktop
             if (IsPackageManaged || !IsDeployedBuild)
                 return false;
 
+            // kan! (fork F-33): a game unpacked from a plain zip has no Velopack to restart it.
+            try
+            {
+                if (!new Velopack.UpdateManager(@"https://localhost").IsInstalled)
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
+
             RestartOnExitAction = () => Velopack.UpdateExe.Start(waitPid: (uint)Environment.ProcessId);
             return true;
         }

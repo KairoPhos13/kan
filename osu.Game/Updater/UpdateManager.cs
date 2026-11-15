@@ -2,10 +2,8 @@
 // See the LICENCE file in the repository root for full licence text.
 
 using System;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using osu.Framework;
 using osu.Framework.Allocation;
 using osu.Framework.Bindables;
 using osu.Framework.Graphics;
@@ -62,9 +60,8 @@ namespace osu.Game.Updater
                 if (FixedReleaseStream != null)
                     config.SetValue(OsuSetting.ReleaseStream, FixedReleaseStream.Value);
 
-                // notify the user if they're using a build that is not officially sanctioned.
-                if (RuntimeInfo.EntryAssembly.GetCustomAttribute<OfficialBuildAttribute>() == null)
-                    Notifications.Post(new SimpleNotification { Text = NotificationsStrings.NotOfficialBuild });
+                // kan! rebrand (ADR-0011), fork F-33: osu!'s "not an official build" notice is about
+                // ppy's signed builds; every kan! release would show it.
             }
             else
             {
@@ -239,15 +236,17 @@ namespace osu.Game.Updater
         }
 
         [BackgroundDependencyLoader]
-        private void load(OsuColour colours, ChangelogOverlay changelog, INotificationOverlay notificationOverlay)
+        private void load(OsuColour colours, OsuGame? game, INotificationOverlay notificationOverlay)
         {
             Icon = FontAwesome.Solid.CheckSquare;
             IconContent.Colour = colours.BlueDark;
 
+            // kan! rebrand (ADR-0011), fork F-33: the version's notes are its GitHub release
+            // page; osu!'s changelog overlay reads ppy's changelog.
             Activated = delegate
             {
                 notificationOverlay.Hide();
-                changelog.ShowBuild(version);
+                game?.OpenUrlExternally($@"https://github.com/KairoPhos13/kan-rhythm/releases/tag/v{version}");
                 return true;
             };
         }
