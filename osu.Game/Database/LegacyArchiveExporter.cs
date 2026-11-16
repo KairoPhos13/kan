@@ -36,6 +36,13 @@ namespace osu.Game.Database
         {
         }
 
+        /// <summary>
+        /// The files the archive carries. kan! fork (F-35): the submission
+        /// exporter leaves the level's stems out of an upload that would pass
+        /// the size limit.
+        /// </summary>
+        protected virtual IEnumerable<INamedFileUsage> GetFilesToExport(TModel model) => model.Files;
+
         public override void ExportToStream(TModel model, Stream outputStream, ProgressNotification? notification, CancellationToken cancellationToken = default)
         {
             var zipWriterOptions = new ZipWriterOptions(CompressionType.Deflate)
@@ -46,11 +53,12 @@ namespace osu.Game.Database
             using (var writer = new ZipWriter(outputStream, zipWriterOptions))
             {
                 int i = 0;
-                int fileCount = model.Files.Count();
+                var files = GetFilesToExport(model).ToList();
+                int fileCount = files.Count;
                 bool anyFileMissing = false;
                 HashSet<string> filesWritten = [];
 
-                foreach (var file in model.Files)
+                foreach (var file in files)
                 {
                     cancellationToken.ThrowIfCancellationRequested();
 

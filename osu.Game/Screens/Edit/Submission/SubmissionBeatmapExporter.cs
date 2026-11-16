@@ -16,12 +16,23 @@ namespace osu.Game.Screens.Edit.Submission
         private readonly uint? beatmapSetId;
         private readonly HashSet<int>? allocatedBeatmapIds;
 
+        /// <summary>
+        /// kan! fork (F-35): which files the package carries. The kan! side
+        /// leaves the level's stems out of an upload that would pass the size
+        /// limit (they stay in the creator's local level). Null: every file,
+        /// upstream behaviour.
+        /// </summary>
+        public Func<BeatmapSetInfo, IEnumerable<INamedFileUsage>>? FileSelector { get; set; }
+
         public SubmissionBeatmapExporter(Storage storage, PutBeatmapSetResponse putBeatmapSetResponse)
             : base(storage)
         {
             beatmapSetId = putBeatmapSetResponse.BeatmapSetId;
             allocatedBeatmapIds = putBeatmapSetResponse.BeatmapIds.Select(id => (int)id).ToHashSet();
         }
+
+        protected override IEnumerable<INamedFileUsage> GetFilesToExport(BeatmapSetInfo model)
+            => FileSelector?.Invoke(model) ?? base.GetFilesToExport(model);
 
         protected override void MutateBeatmap(BeatmapSetInfo beatmapSet, IBeatmap playableBeatmap)
         {

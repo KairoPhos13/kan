@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 using osu.Game.Beatmaps;
-using osu.Game.IO;
+using osu.Game.Database;
 
 namespace Kan.Client
 {
@@ -23,5 +23,18 @@ namespace Kan.Client
         public static bool IsStem(string? fileName)
             => fileName != null
                && fileName.Replace('\\', '/').StartsWith("stems/", StringComparison.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// kan! hook: which files a submission package carries (null: every
+        /// file, upstream behaviour). The kan! side leaves the level's stems
+        /// out of an upload that would pass the size limit.
+        /// </summary>
+        public static Func<BeatmapSetInfo, IEnumerable<INamedFileUsage>>? SelectSubmissionFiles;
+
+        /// <summary>
+        /// kan! hook: the message for the creator when a submission package of
+        /// this size (bytes) must travel without its stems (null: carry them).
+        /// </summary>
+        public static Func<long, string?>? StemsTooBigNotice;
     }
 }

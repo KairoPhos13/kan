@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Kan.Client;
 using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Framework.Audio.Sample;
@@ -65,6 +66,9 @@ namespace osu.Game.Screens.Edit.Submission
         [Resolved]
         private BeatmapManager beatmaps { get; set; } = null!;
 
+        [Resolved]
+        private INotificationOverlay? notifications { get; set; }
+
         [Cached]
         private BeatmapSubmissionSettings settings { get; } = new BeatmapSubmissionSettings();
 
@@ -78,6 +82,14 @@ namespace osu.Game.Screens.Edit.Submission
 
         private uint? beatmapSetId;
         private MemoryStream? beatmapPackageStream;
+
+        /// <summary>
+        /// What goes to the server: the package, or a copy without the level's
+        /// stems when it would pass the limit (kan! fork F-35). The local
+        /// update keeps <see cref="beatmapPackageStream"/> (the stems stay in
+        /// the creator's level).
+        /// </summary>
+        private MemoryStream? beatmapUploadStream;
 
         private ProgressNotification? exportProgressNotification;
         private ProgressNotification? updateProgressNotification;
@@ -289,6 +301,37 @@ namespace osu.Game.Screens.Edit.Submission
             exportStep.SetCompleted();
             exportProgressNotification = null;
 
+            // kan! fork (F-35): the level's stems travel with the upload
+            // unless the package would pass the limit (the tunnel refuses a
+            // request body over 100 MB). The creator's own level keeps them
+            // either way: the local update imports the full package.
+            beatmapUploadStream = beatmapPackageStream;
+
+            if (KanLevelStems.StemsTooBigNotice?.Invoke(beatmapPackageStream.Length) is string stemsNotice)
+            {
+                try
+                {
+                    var withoutStems = new MemoryStream();
+                    var strippedExporter = new SubmissionBeatmapExporter(storage, response)
+                    {
+                        FileSelector = KanLevelStems.SelectSubmissionFiles,
+                    };
+
+                    await strippedExporter
+                          .ExportToStreamAsync(Beatmap.Value.BeatmapSetInfo.ToLive(realmAccess), withoutStems, null)
+                          .ConfigureAwait(true);
+
+                    beatmapUploadStream = withoutStems;
+                    log(stemsNotice);
+                    notifications?.Post(new SimpleNotification { Text = stemsNotice });
+                }
+                catch (Exception ex)
+                {
+                    // Never fail the upload because of stems: the full package goes.
+                    log($@"Could not build the package without the stems: {ex.Message}");
+                }
+            }
+
             await Task.Delay(200).ConfigureAwait(true);
 
             if (response.Files.Count > 0)
@@ -300,14 +343,14 @@ namespace osu.Game.Screens.Edit.Submission
         private async Task patchBeatmapSet(ICollection<BeatmapSetFile> onlineFiles)
         {
             Debug.Assert(beatmapSetId != null);
-            Debug.Assert(beatmapPackageStream != null);
+            Debug.Assert(beatmapUploadStream != null);
             log("Determining list of files to patch...");
 
             var onlineFilesByFilename = onlineFiles.ToDictionary(f => f.Filename, f => f.SHA2Hash);
 
             // disposing the `ArchiveReader` makes the underlying stream no longer readable which we don't want.
             // make a local copy to defend against it.
-            using var archiveReader = new ZipArchiveReader(new MemoryStream(beatmapPackageStream.ToArray()));
+            using var archiveReader = new ZipArchiveReader(new MemoryStream(beatmapUploadStream.ToArray()));
             var filesToUpdate = new HashSet<string>();
 
             foreach (string filename in archiveReader.Filenames)
@@ -358,9 +401,9 @@ namespace osu.Game.Screens.Edit.Submission
             log("Peforming full package upload...");
 
             Debug.Assert(beatmapSetId != null);
-            Debug.Assert(beatmapPackageStream != null);
+            Debug.Assert(beatmapUploadStream != null);
 
-            var uploadRequest = new ReplaceBeatmapPackageRequest(beatmapSetId.Value, beatmapPackageStream.ToArray());
+            var uploadRequest = new ReplaceBeatmapPackageRequest(beatmapSetId.Value, beatmapUploadStream.ToArray());
 
             uploadRequest.Success += uploadCompleted;
             uploadRequest.Failure += ex =>
