@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using Kan.Client;
 using osu.Game.Extensions;
 using osu.Game.Rulesets.Edit.Checks.Components;
 
@@ -25,6 +26,10 @@ namespace osu.Game.Rulesets.Edit.Checks
             {
                 foreach (var file in beatmapSet.Files)
                 {
+                    // kan! fork (F-34): a level's stems are source material,
+                    // not samples, and play never opens them.
+                    if (KanLevelStems.IsStem(file.Filename)) continue;
+
                     using (Stream data = context.CurrentDifficulty.Working.GetStream(file.File.GetStoragePath()))
                     {
                         if (data?.Length == 0)

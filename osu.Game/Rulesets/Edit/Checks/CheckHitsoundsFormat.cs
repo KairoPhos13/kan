@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using Kan.Client;
 using ManagedBass;
 using osu.Framework.Audio.Callbacks;
 using osu.Game.Beatmaps;
@@ -41,6 +42,10 @@ namespace osu.Game.Rulesets.Edit.Checks
             foreach (var file in beatmapSet.Files)
             {
                 if (audioFiles.Contains(file)) continue;
+
+                // kan! fork (F-34): a level's stems are source material, not
+                // hitsounds, and play never opens them.
+                if (KanLevelStems.IsStem(file.Filename)) continue;
 
                 using (Stream data = context.CurrentDifficulty.Working.GetStream(file.File.GetStoragePath()))
                 {

@@ -4,6 +4,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Kan.Client;
 using osu.Framework.Audio.Track;
 using osu.Game.Audio;
 using osu.Game.Extensions;
@@ -44,6 +45,10 @@ namespace osu.Game.Rulesets.Edit.Checks
 
             foreach (var file in beatmapSet.Files)
             {
+                // kan! fork (F-34): a level's stems are source material, not
+                // hitsounds, and play never opens them.
+                if (KanLevelStems.IsStem(file.Filename)) continue;
+
                 using (Stream? stream = context.CurrentDifficulty.Working.GetStream(file.File.GetStoragePath()))
                 {
                     if (stream == null)
