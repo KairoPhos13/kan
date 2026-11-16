@@ -1,6 +1,6 @@
 # THIRD PARTY NOTICES: kan! client
 
-Generated 2026-11-11 by `game/tools/gen-third-party-notices.py` (monorepo kan-rhythm). Do not edit by hand: regenerate instead.
+Generated 2026-11-16 by `game/tools/gen-third-party-notices.py` (monorepo kan-rhythm). Do not edit by hand: regenerate instead.
 
 The kan! client is built on the osu!lazer fork (github.com/KairoPhos13/kan, itself a fork of `ppy/osu`). This file lists every redistributed third-party component and its licence, and is shown on the in-game about screen. Licence *texts* of individual packages ship inside the corresponding NuGet package (`~/.nuget/packages/<id>/<version>/`); extract any of them with:
 
@@ -220,7 +220,7 @@ Shipped as native binaries next to the executable; section 3 lists the managed w
 - **e_sqlite3** (SQLite): public domain, via `SQLite` and `SQLitePCLRaw`.
 - **BASS / BASSMIX / BASSFX / BASSWASAPI**: see section 2 (un4seen commercial terms).
 - **DiscordRPC** (`DiscordRichPresence`, MIT): a Discord RPC wrapper. kan! keeps Discord presence **off** (fork F-20), so no Discord integration is active.
-- **kan!'s native bridge** (`kan_forge_native`): miniaudio (MIT-0), the Basic Pitch C++ port and its ICASSP 2022 weights (Apache-2.0, Copyright 2022 Spotify AB), GGML (MIT) and BSRoformer.cpp (MIT). Record of record with versions and changes: `libkan/THIRD_PARTY_NOTICES.md` in the kan-rhythm monorepo.
+- **kan!'s native bridge** (`kan_forge_native`): miniaudio (MIT-0), the Basic Pitch C++ port and its ICASSP 2022 weights (Apache-2.0, Copyright 2022 Spotify AB), GGML (MIT), BSRoformer.cpp (MIT), stb_vorbis (public domain, Sean Barrett) and libogg 1.3.6 and libvorbis 1.3.7 (BSD-3-Clause, Copyright (c) 2002-2020 Xiph.org Foundation; licence texts in `licenses/`). Record of record with versions and changes: `libkan/THIRD_PARTY_NOTICES.md` in the kan-rhythm monorepo.
 
 ## 6. Separation model (downloaded at first use)
 
@@ -229,5 +229,6 @@ Splitting a song into its parts downloads one BS-RoFormer 6-stem separation mode
 - **Default: the f16 grade of `studio409/BSRoformer-SW-6Stem-GGUF`** (Hugging Face), a GGUF conversion of `elicwhite/bs-roformer-sw-6stem-onnx`: **MIT licence**.
 - **Opt-in: the q8 grade of `FractalSurfer/BS-RoFormer-SW-6stem`** (only with `KAN_ROFORMER_GRADE=q8`): its model card declares **no licence**, so kan! never selects it on its own.
 - `KAN_MODEL_URL` downloads from an own host instead; `KAN_ROFORMER_GGUF` points at a local file (no download).
+- The download is pinned to an immutable source revision and verified against a pinned SHA-256 before use; a wrong or truncated file is deleted and never loaded.
 
 This notices file is generated, not exhaustive by legal opinion: if any entry looks wrong, fix the generator or the package reference and regenerate. Tracking issue surface: `game/docs/fork-divergence.md`.
